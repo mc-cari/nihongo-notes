@@ -55,17 +55,17 @@ export const particles: Particle[] = [
     examples: [
       { tokens: [w('コーヒー', undefined, 'coffee'), w('を', undefined, 'object marker'), w('飲みます', 'のみます', 'drink'), p('。')], english: 'I drink coffee.' },
       { tokens: [w('水', 'みず', 'water'), w('を', undefined, 'object marker'), w('ください', undefined, 'please give me'), p('。')], english: 'Water, please.' },
-    ], classes: ['grammar-basics', 'convenience-store', 'minna-lesson-6'],
+    ], classes: ['grammar-basics', 'convenience-store', 'minna-lesson-6', 'minna-lesson-7'],
   },
   {
     id: 'ni', kana: 'に', spoken: 'ni', role: 'target / point',
     core: 'Pins an event to a target: a time point, destination, recipient, or place of existence.',
-    uses: ['Exact time: ８時に.', 'Destination with 行く・来る・帰る.', 'Location where something exists; later, recipient and purpose.'],
+    uses: ['Exact time: ８時に.', 'Destination with 行く・来る・帰る.', 'Location where something exists.', 'Recipient with あげる; person from whom something is received with もらう.'],
     caution: 'Relative time words such as 今日, 明日, 毎日 usually do not take に. Weekdays may take it or omit it.',
     examples: [
       { tokens: [w('八時', 'はちじ', 'eight o’clock'), w('に', undefined, 'time point'), w('起きます', 'おきます', 'wake up'), p('。')], english: 'I wake up at eight.' },
       { tokens: [w('京都', 'きょうと', 'Kyoto'), w('に', undefined, 'destination marker'), w('行きます', 'いきます', 'go'), p('。')], english: 'I go to Kyoto.' },
-    ], classes: ['minna-lesson-4', 'minna-lesson-5', 'self-introduction'],
+    ], classes: ['minna-lesson-4', 'minna-lesson-5', 'minna-lesson-7', 'self-introduction'],
   },
   {
     id: 'de', kana: 'で', spoken: 'de', role: 'scene / means',
@@ -75,7 +75,7 @@ export const particles: Particle[] = [
     examples: [
       { tokens: [w('家', 'いえ', 'home'), w('で', undefined, 'place of action'), w('食べます', 'たべます', 'eat'), p('。')], english: 'I eat at home.' },
       { tokens: [w('電車', 'でんしゃ', 'train'), w('で', undefined, 'means marker'), w('行きます', 'いきます', 'go'), p('。')], english: 'I go by train.' },
-    ], classes: ['grammar-basics', 'minna-lesson-5', 'minna-lesson-6', 'convenience-store'],
+    ], classes: ['grammar-basics', 'minna-lesson-5', 'minna-lesson-6', 'minna-lesson-7', 'convenience-store'],
   },
   {
     id: 'e', kana: 'へ', spoken: 'e', role: 'direction',
@@ -118,10 +118,10 @@ export const particles: Particle[] = [
   {
     id: 'kara', kana: 'から', spoken: 'kara', role: 'starting point',
     core: 'Marks where or when a span begins: “from”.',
-    uses: ['Starting time.', 'Origin or starting place.'],
-    caution: 'から can appear without まで when only the start matters.',
+    uses: ['Starting time.', 'Origin or starting place.', 'Source person with もらう.'],
+    caution: 'から can appear without まで when only the start matters. With もらう, a person can take に or から.',
     examples: [{ tokens: [w('九時', 'くじ', 'nine o’clock'), w('から', undefined, 'from'), w('働きます', 'はたらきます', 'work'), p('。')], english: 'I work from nine.' }],
-    classes: ['minna-lesson-4', 'self-introduction'],
+    classes: ['minna-lesson-4', 'minna-lesson-7', 'self-introduction'],
   },
   {
     id: 'made', kana: 'まで', spoken: 'made', role: 'end point',
@@ -138,6 +138,8 @@ export const verbRules = [
   { id: 'motion', label: 'Movement has a target', summary: '行きます・来ます・帰ります pair with に or へ for destination, で for transport, と for company, and に for exact time.', forms: [['destination', 'place に／へ'], ['transport', 'vehicle で'], ['company', 'person と'], ['time', 'time に']], note: 'You can omit information already obvious from the conversation.' },
   { id: 'transitive', label: 'Actions affect を', summary: 'A transitive verb acts directly on a marked thing. The place where the action occurs takes で.', forms: [['thing affected', 'noun を'], ['place of action', 'place で'], ['tool / language', 'means で']], note: 'Do not use に simply because English says “at.” Choose the particle from the Japanese role.' },
   { id: 'invitation', label: 'Invite, then decide', summary: 'ませんか softly invites someone. ましょう proposes the shared decision or accepts it.', forms: [['invitation', 'verb ませんか'], ['proposal', 'verb ましょう']], note: 'A negative-looking form becomes a polite invitation in this pattern.' },
+  { id: 'giving-receiving', label: 'Follow an exchange', summary: 'あげます follows something from giver to recipient. もらいます frames the same kind of exchange from the receiver.', forms: [['give to someone', 'person に thing を あげます'], ['receive from someone', 'person に／から thing を もらいます']], note: 'Choose the verb from the viewpoint of the sentence, then mark the other person accordingly.' },
+  { id: 'already', label: 'Already or not yet', summary: 'もう + a past verb marks an expected action as complete. まだです is the compact reply when it remains incomplete.', forms: [['already did', 'もう verb ました'], ['not yet', 'まだです']], note: 'When the answer is not yet, do not combine もう with a negative verb.' },
 ];
 
 export const adjectiveRules = [
