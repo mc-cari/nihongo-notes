@@ -1,0 +1,52 @@
+{
+  "title": "Actions, places, and invitations",
+  "japaneseTitle": "みんなの日本語 第6課",
+  "order": 7,
+  "kind": "lesson",
+  "bookLesson": 6,
+  "eyebrow": "Minna no Nihongo · Lesson 6",
+  "summary": "Mark what an action affects and where it happens, then invite someone or suggest doing it together.",
+  "sourceFiles": ["みんなの日本語　第6課　with exercises.pdf"],
+  "takeaways": ["を marks the thing directly affected by a transitive action.", "で marks the place where an action happens.", "ませんか invites; ましょう proposes or accepts a shared action."],
+  "grammar": [
+    {
+      "id": "transitive-object",
+      "title": "Mark the affected thing",
+      "pattern": "Noun を Verb ます",
+      "summary": "Place を after the food, drink, text, or other thing directly affected by a transitive verb.",
+      "examples": [
+        {"tokens": [{"text":"毎朝","reading":"まいあさ","gloss":"every morning"},{"text":"コーヒー","gloss":"coffee"},{"text":"を","gloss":"object marker"},{"text":"飲みます","reading":"のみます","gloss":"drink"},{"text":"。","plain":true}],"english":"I drink coffee every morning."},
+        {"tokens": [{"text":"週末","reading":"しゅうまつ","gloss":"weekend"},{"text":"日本語","reading":"にほんご","gloss":"Japanese language"},{"text":"を","gloss":"object marker"},{"text":"勉強しました","reading":"べんきょうしました","gloss":"studied"},{"text":"。","plain":true}],"english":"I studied Japanese on the weekend."}
+      ],
+      "caution": "何も means “nothing” only with a negative predicate: 何も飲みません, not 何も飲みます."
+    },
+    {
+      "id": "action-place",
+      "title": "Set the scene of an action",
+      "pattern": "Place で Noun を Verb ます",
+      "summary": "Use で for the location where an action such as eating, studying, or buying takes place.",
+      "examples": [
+        {"tokens": [{"text":"研究室","reading":"けんきゅうしつ","gloss":"laboratory"},{"text":"で","gloss":"place of action"},{"text":"昼ご飯","reading":"ひるごはん","gloss":"lunch"},{"text":"を","gloss":"object marker"},{"text":"食べました","reading":"たべました","gloss":"ate"},{"text":"。","plain":true}],"english":"I ate lunch in the laboratory."},
+        {"tokens": [{"text":"コンビニ","gloss":"convenience store"},{"text":"で","gloss":"place of action"},{"text":"お弁当","reading":"おべんとう","gloss":"boxed lunch"},{"text":"を","gloss":"object marker"},{"text":"買います","reading":"かいます","gloss":"buy"},{"text":"。","plain":true}],"english":"I buy a boxed lunch at a convenience store."}
+      ],
+      "caution": "Choose the particle by role: a place where an action occurs takes で, while a movement destination takes に or へ."
+    },
+    {
+      "id": "invitation-proposal",
+      "title": "Invite, then agree on a plan",
+      "pattern": "Verb ませんか → Verb ましょう",
+      "summary": "Use ませんか for a gentle invitation. Use ましょう to propose the shared action or accept the invitation.",
+      "examples": [
+        {"tokens": [{"text":"いっしょに","gloss":"together"},{"text":"映画","reading":"えいが","gloss":"movie"},{"text":"を","gloss":"object marker"},{"text":"見ませんか","reading":"みませんか","gloss":"won't you watch?"},{"text":"。","plain":true}],"english":"Would you like to watch a movie together?"},
+        {"tokens": [{"text":"いいですね","gloss":"that sounds good"},{"text":"見ましょう","reading":"みましょう","gloss":"let's watch"},{"text":"。","plain":true}],"english":"That sounds good. Let's watch it."}
+      ],
+      "caution": "Although ません is normally negative, the full ませんか pattern is a polite invitation rather than a plain negative question."
+    }
+  ],
+  "recall": [
+    {"prompt":"Which particle marks what you eat, drink, read, or buy?","answer":"を"},
+    {"prompt":"How do you ask “Where did you eat lunch?”","answer":"どこで昼ご飯を食べましたか。"},
+    {"prompt":"What is the difference between 見ませんか and 見ましょう?","answer":"見ませんか invites; 見ましょう proposes or accepts the plan."}
+  ],
+  "related": {"particles":["o","de","mo"],"verbs":["masu-time","transitive","invitation"],"adjectives":[]}
+}

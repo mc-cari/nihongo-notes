@@ -21,6 +21,9 @@ with sync_playwright() as playwright:
     assert desktop.locator("h1").get_by_text("Grammar").is_visible()
     assert desktop.locator("nav[aria-label='Primary navigation'] a").count() == 5
     assert desktop.locator(".skip-link").evaluate("el => el.getBoundingClientRect().right < 0")
+    class_titles = desktop.locator(".class-ribbon strong").all_inner_texts()
+    assert class_titles.index("Questions at an izakaya") < class_titles.index("Time and daily actions")
+    assert class_titles.index("At a convenience store") < class_titles.index("Time and daily actions")
 
     first_token = desktop.locator(".jp-token").first
     first_token.hover()
