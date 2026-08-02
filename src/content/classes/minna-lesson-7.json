@@ -1,0 +1,52 @@
+{
+  "title": "Means, exchange, and completion",
+  "japaneseTitle": "みんなの日本語 第7課",
+  "order": 8,
+  "kind": "lesson",
+  "bookLesson": 7,
+  "eyebrow": "Minna no Nihongo · Lesson 7",
+  "summary": "Say how or in which language something is done, track who gives and receives, and ask whether an action is already complete.",
+  "sourceFiles": ["みんなの日本語　第7課.pdf"],
+  "takeaways": ["で marks a tool, method, or language used to perform an action.", "あげます points away from the giver; もらいます frames the event from the receiver.", "もう + past asks or says “already”; a negative reply is まだです."],
+  "grammar": [
+    {
+      "id": "means-language",
+      "title": "Name the means or language",
+      "pattern": "Tool／Language で Verb ます",
+      "summary": "Use で after the tool, method, service, or language through which an action is carried out.",
+      "examples": [
+        {"tokens": [{"text":"箸","reading":"はし","gloss":"chopsticks"},{"text":"で","gloss":"means marker"},{"text":"お寿司","reading":"おすし","gloss":"sushi"},{"text":"を","gloss":"object marker"},{"text":"食べます","reading":"たべます","gloss":"eat"},{"text":"。","plain":true}],"english":"I eat sushi with chopsticks."},
+        {"tokens": [{"text":"英語","reading":"えいご","gloss":"English language"},{"text":"で","gloss":"language marker"},{"text":"論文","reading":"ろんぶん","gloss":"academic paper"},{"text":"を","gloss":"object marker"},{"text":"書きます","reading":"かきます","gloss":"write"},{"text":"。","plain":true}],"english":"I write academic papers in English."}
+      ],
+      "caution": "The same で marks where an action happens and what enables it. Read the noun and the action to decide whether it names the scene or the means."
+    },
+    {
+      "id": "giving-receiving",
+      "title": "Track the direction of an exchange",
+      "pattern": "Person に Noun を あげます／Person に・から Noun を もらいます",
+      "summary": "With あげます, に marks the recipient. With もらいます, に or から marks the person from whom the receiver gets something.",
+      "examples": [
+        {"tokens": [{"text":"母","reading":"はは","gloss":"my mother"},{"text":"に","gloss":"recipient marker"},{"text":"花","reading":"はな","gloss":"flowers"},{"text":"を","gloss":"object marker"},{"text":"あげました","gloss":"gave"},{"text":"。","plain":true}],"english":"I gave my mother flowers."},
+        {"tokens": [{"text":"友達","reading":"ともだち","gloss":"friend"},{"text":"から","gloss":"source marker"},{"text":"本","reading":"ほん","gloss":"book"},{"text":"を","gloss":"object marker"},{"text":"もらいました","gloss":"received"},{"text":"。","plain":true}],"english":"I received a book from a friend."}
+      ],
+      "caution": "Choose the verb from the sentence viewpoint: あげます follows the thing from giver to recipient; もらいます describes the receiver obtaining it."
+    },
+    {
+      "id": "already-not-yet",
+      "title": "Check whether it is done",
+      "pattern": "もう Verb ましたか → はい、もう Verb ました／いいえ、まだです",
+      "summary": "Put もう before a past verb to ask or say that an expected action is already complete. Answer まだです when it is not complete yet.",
+      "examples": [
+        {"tokens": [{"text":"もう","gloss":"already"},{"text":"夜ご飯","reading":"よるごはん","gloss":"dinner"},{"text":"を","gloss":"object marker"},{"text":"食べました","reading":"たべました","gloss":"ate"},{"text":"か","gloss":"question marker"},{"text":"。","plain":true}],"english":"Have you eaten dinner yet?"},
+        {"tokens": [{"text":"いいえ","gloss":"no"},{"text":"まだです","gloss":"not yet"},{"text":"。","plain":true}],"english":"No, not yet."}
+      ],
+      "caution": "For the short negative reply, use まだです. Do not answer もう + a negative verb when you mean “not yet.”"
+    }
+  ],
+  "recall": [
+    {"prompt":"How do you ask “What is ‘thank you’ in Japanese?”","answer":"「Thank you」は日本語で何ですか。"},
+    {"prompt":"Which particle marks the recipient with あげます?","answer":"に"},
+    {"prompt":"How do you answer もう食べましたか if you have not eaten yet?","answer":"いいえ、まだです。"}
+  ],
+  "related": {"particles":["o","ni","de","kara"],"verbs":["masu-time","transitive","giving-receiving","already"],"adjectives":[]}
+}
