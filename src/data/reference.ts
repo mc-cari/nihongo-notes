@@ -55,7 +55,7 @@ export const particles: Particle[] = [
     examples: [
       { tokens: [w('コーヒー', undefined, 'coffee'), w('を', undefined, 'object marker'), w('飲みます', 'のみます', 'drink'), p('。')], english: 'I drink coffee.' },
       { tokens: [w('水', 'みず', 'water'), w('を', undefined, 'object marker'), w('ください', undefined, 'please give me'), p('。')], english: 'Water, please.' },
-    ], classes: ['grammar-basics', 'convenience-store'],
+    ], classes: ['grammar-basics', 'convenience-store', 'minna-lesson-6'],
   },
   {
     id: 'ni', kana: 'に', spoken: 'ni', role: 'target / point',
@@ -75,7 +75,7 @@ export const particles: Particle[] = [
     examples: [
       { tokens: [w('家', 'いえ', 'home'), w('で', undefined, 'place of action'), w('食べます', 'たべます', 'eat'), p('。')], english: 'I eat at home.' },
       { tokens: [w('電車', 'でんしゃ', 'train'), w('で', undefined, 'means marker'), w('行きます', 'いきます', 'go'), p('。')], english: 'I go by train.' },
-    ], classes: ['grammar-basics', 'minna-lesson-5', 'convenience-store'],
+    ], classes: ['grammar-basics', 'minna-lesson-5', 'minna-lesson-6', 'convenience-store'],
   },
   {
     id: 'e', kana: 'へ', spoken: 'e', role: 'direction',
@@ -101,7 +101,7 @@ export const particles: Particle[] = [
     examples: [
       { tokens: [w('私', 'わたし', 'I'), w('も', undefined, 'also'), w('学生', 'がくせい', 'student'), w('です', undefined, 'am / is'), p('。')], english: 'I am also a student.' },
       { tokens: [w('どこ', undefined, 'where'), w('にも', undefined, 'to no place + negative'), w('行きません', 'いきません', 'do not go'), p('。')], english: 'I do not go anywhere.' },
-    ], classes: ['grammar-basics', 'minna-lesson-5'],
+    ], classes: ['grammar-basics', 'minna-lesson-5', 'minna-lesson-6'],
   },
   {
     id: 'no', kana: 'の', spoken: 'no', role: 'connection / belonging',
