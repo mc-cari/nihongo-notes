@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageLead from '../components/PageLead.astro';
+import { kanaRows } from '../data/reference';
+---
+
+<BaseLayout title="Kana — Nihongo Notes" description="Hiragana and katakana reference charts.">
+  <PageLead eyebrow="Remembering kana" title="The syllables" japanese="仮名" intro="Hiragana and katakana, side by side. Read down a consonant row and across the five vowels: a, i, u, e, o." />
+  <section class="kana-key" aria-label="Vowel column key">
+    <span>row</span><strong>a</strong><strong>i</strong><strong>u</strong><strong>e</strong><strong>o</strong>
+  </section>
+  <section class="kana-pair">
+    <div>
+      <header><p class="eyebrow">Curved / native</p><h2>Hiragana <span lang="ja">ひらがな</span></h2></header>
+      <div class="kana-chart">
+        {kanaRows.map((row) => (
+          <div class="kana-row">
+            <span>{row.consonant}</span>
+            {row.hira.map((kana, index) => kana ? <div><strong lang="ja">{kana}</strong><small>{row.roma[index]}</small></div> : <i aria-hidden="true"></i>)}
+          </div>
+        ))}
+      </div>
+    </div>
+    <div>
+      <header><p class="eyebrow">Angular / borrowed</p><h2>Katakana <span lang="ja">カタカナ</span></h2></header>
+      <div class="kana-chart">
+        {kanaRows.map((row) => (
+          <div class="kana-row">
+            <span>{row.consonant}</span>
+            {row.kata.map((kana, index) => kana ? <div><strong lang="ja">{kana}</strong><small>{row.roma[index]}</small></div> : <i aria-hidden="true"></i>)}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .kana-key { margin: 4rem 0 1rem; display: grid; grid-template-columns: 2rem repeat(5, 1fr); gap: .35rem; color: var(--ink-faint); font-family: var(--utility); font-size: .62rem; text-align: center; text-transform: uppercase; }
+  .kana-pair { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(2rem, 6vw, 6rem); padding-bottom: 7rem; }
+  .kana-pair h2 { font-size: clamp(2.5rem, 5vw, 4rem); }
+  .kana-pair h2 span { display: block; margin-top: .4rem; color: var(--indigo); font-family: var(--jp); font-size: .95rem; letter-spacing: .12em; }
+  .kana-chart { border-top: 1px solid var(--line); }
+  .kana-row { display: grid; grid-template-columns: 2rem repeat(5, 1fr); gap: .35rem; padding: .35rem 0; border-bottom: 1px solid var(--line); }
+  .kana-row > span { align-self: center; color: var(--ink-faint); font-family: var(--utility); font-size: .58rem; }
+  .kana-row div, .kana-row i { min-height: 4.4rem; display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--paper); font-style: normal; }
+  .kana-row i { background: transparent; }
+  .kana-row strong { font-family: var(--jp); font-size: clamp(1.35rem, 2.4vw, 1.9rem); font-weight: 400; }
+  .kana-row small { color: var(--indigo); font-family: var(--utility); font-size: .54rem; }
+  @media (max-width: 800px) {
+    .kana-key { display: none; }
+    .kana-pair { grid-template-columns: 1fr; }
+  }
+</style>

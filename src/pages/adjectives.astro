@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageLead from '../components/PageLead.astro';
+import { adjectiveRules } from '../data/reference';
+---
+
+<BaseLayout title="Adjectives — Nihongo Notes" description="Compact Japanese adjective grammar summaries.">
+  <PageLead eyebrow="Reference shelf" title="Adjectives" japanese="形容詞" intro="First decide whether an adjective belongs to the い or な family. That single choice tells you how it changes and how it sits before a noun." />
+  <section class="adjective-split">
+    {adjectiveRules.slice(0, 2).map((rule) => (
+      <article id={rule.id}>
+        <span class="adjective-split__marker" lang="ja">{rule.marker}</span>
+        <p class="eyebrow">{rule.label}</p>
+        <h2>{rule.summary}</h2>
+        <div class="forms">
+          {rule.forms.map(([label, form]) => <div><span>{label}</span><strong lang="ja">{form}</strong></div>)}
+        </div>
+        <p class="noun-form"><span>Before a noun</span><strong lang="ja">{rule.nounForm}</strong></p>
+        <aside>{rule.caution}</aside>
+      </article>
+    ))}
+  </section>
+  <section class="preference-rule" id={adjectiveRules[2].id}>
+    <div>
+      <p class="eyebrow">A useful exception to English instinct</p>
+      <h2>{adjectiveRules[2].label}</h2>
+      <p>{adjectiveRules[2].summary}</p>
+    </div>
+    <div class="preference-rule__examples">
+      {adjectiveRules[2].forms.map(([label, form]) => <div><span>{label}</span><strong lang="ja">{form}</strong></div>)}
+      <p><span>Before a noun</span><strong lang="ja">{adjectiveRules[2].nounForm}</strong></p>
+      <aside>{adjectiveRules[2].caution}</aside>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .adjective-split { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; margin: 5rem 0; background: var(--line); border: 1px solid var(--line); }
+  .adjective-split article { position: relative; padding: clamp(2rem, 5vw, 4.5rem); background: var(--paper); overflow: hidden; }
+  .adjective-split__marker { position: absolute; top: -2rem; right: 1rem; color: rgba(215,95,74,.1); font-family: var(--jp); font-size: 13rem; line-height: 1; }
+  .adjective-split h2 { position: relative; min-height: 8rem; font-family: var(--body); font-size: 1.1rem; line-height: 1.65; }
+  .forms { position: relative; border-top: 1px solid var(--line); }
+  .forms div, .noun-form { min-height: 4rem; margin: 0; padding: .8rem 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem; border-bottom: 1px solid var(--line); }
+  .forms span, .noun-form span, .preference-rule__examples span { color: var(--ink-faint); font-family: var(--utility); font-size: .58rem; text-transform: uppercase; }
+  .forms strong, .noun-form strong { color: var(--brass); font-family: var(--jp); font-size: 1.1rem; font-weight: 400; text-align: right; }
+  .adjective-split aside { margin-top: 1.2rem; color: var(--indigo); font-size: .8rem; }
+  .preference-rule { display: grid; grid-template-columns: minmax(16rem, .75fr) minmax(0, 1.25fr); gap: clamp(3rem, 8vw, 8rem); padding: 7rem 0 9rem; border-top: 1px solid var(--line); }
+  .preference-rule h2 { font-size: clamp(3rem, 6vw, 5rem); }
+  .preference-rule > div:first-child > p:last-child { color: var(--ink-dim); }
+  .preference-rule__examples > div, .preference-rule__examples > p { min-height: 6rem; margin: 0; padding: 1rem; display: flex; flex-direction: column; border: 1px solid var(--line); border-bottom: 0; }
+  .preference-rule__examples strong { margin-top: auto; color: var(--brass); font-family: var(--jp); font-size: 1.2rem; font-weight: 400; }
+  .preference-rule__examples aside { padding: 1rem; color: var(--indigo); border: 1px dashed rgba(215,95,74,.35); font-size: .82rem; }
+  @media (max-width: 750px) {
+    .adjective-split, .preference-rule { grid-template-columns: 1fr; }
+    .adjective-split h2 { min-height: 0; }
+  }
+</style>

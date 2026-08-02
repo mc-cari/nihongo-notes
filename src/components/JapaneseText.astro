@@ -1,0 +1,32 @@
+---
+import type { JpToken } from '../data/reference';
+
+interface Props {
+  tokens: JpToken[];
+  class?: string;
+}
+
+const { tokens, class: className } = Astro.props;
+---
+
+<span class:list={["jp-text", className]} lang="ja">
+  {tokens.map((token) => token.plain ? (
+    <span class="jp-plain">{token.text}</span>
+  ) : (
+    <button
+      class="jp-token"
+      type="button"
+      data-gloss={token.gloss}
+      data-reading={token.reading || ''}
+      data-surface={token.text}
+      aria-label={`${token.text}${token.reading ? `, ${token.reading}` : ''}: ${token.gloss}`}
+    >
+      <span class="jp-token__surface">
+        {token.reading ? <ruby>{token.text}<rt>{token.reading}</rt></ruby> : token.text}
+      </span>
+      <span class="jp-token__popup" aria-hidden="true">
+        <span class="jp-token__popup-meaning">{token.gloss}</span>
+      </span>
+    </button>
+  ))}
+</span>

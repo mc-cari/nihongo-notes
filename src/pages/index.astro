@@ -1,0 +1,174 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import JapaneseText from '../components/JapaneseText.astro';
+
+const classes = (await getCollection('classes')).sort((a, b) => a.data.order - b.data.order);
+const thesis = [
+  { text: '文法', reading: 'ぶんぽう', gloss: 'grammar' },
+  { text: 'は', gloss: 'topic marker' },
+  { text: '、', plain: true },
+  { text: '言葉', reading: 'ことば', gloss: 'words / language' },
+  { text: 'の', gloss: 'connecting particle' },
+  { text: '地図', reading: 'ちず', gloss: 'map' },
+  { text: 'です', gloss: 'is' },
+  { text: '。', plain: true },
+];
+---
+
+<BaseLayout>
+  <section class="hero">
+    <div class="hero__main">
+      <p class="eyebrow">Notes for what matters</p>
+      <h1><span>Grammar</span> you can return to.</h1>
+      <p class="hero__thesis"><JapaneseText tokens={thesis} /></p>
+      <p class="hero__intro">A compact, growing record of your Minna no Nihongo classes—patterns, contrasts, and the small details that disappear first.</p>
+      <a class="text-link" href="/classes/">Open the class index <span aria-hidden="true">→</span></a>
+    </div>
+    <aside class="hero__note">
+      <span class="hero__pin" aria-hidden="true"></span>
+      <p class="hero__note-label">How to use this</p>
+      <p>Hover or tap any underlined Japanese word. Its reading stays in place; its meaning pops up above it.</p>
+      <p class="hero__note-jp" lang="ja">読んで、思い出す。</p>
+    </aside>
+  </section>
+
+  <section class="reference-strip" aria-labelledby="reference-title">
+    <header>
+      <p class="eyebrow">Reference shelf</p>
+      <h2 id="reference-title">The rules that repeat.</h2>
+    </header>
+    <div class="reference-links">
+      <a href="/particles/"><span lang="ja">助詞</span><strong>Particles</strong><small>Roles, contrasts, traps</small></a>
+      <a href="/verbs/"><span lang="ja">動詞</span><strong>Verbs</strong><small>Time, movement, action</small></a>
+      <a href="/adjectives/"><span lang="ja">形容詞</span><strong>Adjectives</strong><small>い, な, preference</small></a>
+      <a href="/kana/"><span lang="ja">仮名</span><strong>Kana</strong><small>Hiragana + katakana</small></a>
+    </div>
+  </section>
+
+  <section class="home-classes" aria-labelledby="classes-title">
+    <header>
+      <div>
+        <p class="eyebrow">Class archive</p>
+        <h2 id="classes-title">Six pages, not six piles of notes.</h2>
+      </div>
+      <a class="text-link" href="/classes/">See all classes <span aria-hidden="true">→</span></a>
+    </header>
+    <ol class="class-ribbon">
+      {classes.map((entry) => (
+        <li>
+          <a href={`/classes/${entry.id}/`}>
+            <span class="class-ribbon__order">{String(entry.data.order).padStart(2, '0')}</span>
+            <span class="class-ribbon__kind">{entry.data.eyebrow}</span>
+            <strong>{entry.data.title}</strong>
+            <span lang="ja">{entry.data.japaneseTitle}</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    min-height: min(48rem, calc(100vh - 6.25rem));
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(15rem, 24rem);
+    gap: clamp(3rem, 8vw, 8rem);
+    align-items: center;
+    padding: clamp(5rem, 11vw, 9rem) 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero h1 {
+    max-width: 53rem;
+    margin-bottom: 1.7rem;
+    font-size: clamp(4rem, 10vw, 9.5rem);
+    letter-spacing: -.065em;
+  }
+
+  .hero h1 span { display: block; color: var(--indigo); font-style: italic; font-weight: 350; }
+
+  .hero__thesis {
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+    font-size: clamp(1.25rem, 2.4vw, 1.8rem);
+  }
+
+  .hero__intro { max-width: 38rem; color: var(--ink-dim); font-size: 1.04rem; }
+
+  .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .8rem;
+    color: var(--ink);
+    font-family: var(--utility);
+    font-size: .72rem;
+    text-decoration-color: var(--cinnabar);
+    text-underline-offset: .35rem;
+  }
+
+  .text-link span { color: var(--cinnabar); font-size: 1.2rem; }
+
+  .hero__note {
+    position: relative;
+    align-self: end;
+    margin-bottom: 2rem;
+    padding: 2.4rem 2rem 2rem;
+    color: #282117;
+    background: #bcae8e;
+    box-shadow: 1.4rem 1.7rem 4rem rgba(0,0,0,.32);
+    transform: rotate(1.2deg);
+  }
+
+  .hero__note::after {
+    content: '';
+    position: absolute;
+    right: -.1rem;
+    bottom: -.1rem;
+    border-style: solid;
+    border-width: 0 0 1.5rem 1.5rem;
+    border-color: transparent transparent #171612 transparent;
+  }
+
+  .hero__pin { position: absolute; top: .8rem; left: 50%; width: .5rem; height: .5rem; border-radius: 50%; background: var(--cinnabar); box-shadow: 0 2px 5px rgba(0,0,0,.5); }
+  .hero__note-label { font-family: var(--utility); font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; }
+  .hero__note p:nth-child(3) { font-size: .9rem; line-height: 1.55; }
+  .hero__note-jp { margin: 1.6rem 0 0; font-family: var(--jp); font-size: 1.35rem; text-align: right; }
+
+  .reference-strip { padding: clamp(4rem, 8vw, 7rem) 0; border-bottom: 1px solid var(--line); }
+  .reference-strip > header { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; margin-bottom: 3rem; }
+  .reference-strip h2, .home-classes h2 { max-width: 38rem; margin: 0; font-size: clamp(2.5rem, 5vw, 4.6rem); letter-spacing: -.04em; }
+  .reference-links { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line); }
+  .reference-links a { min-height: 15rem; padding: 1.4rem; display: flex; flex-direction: column; text-decoration: none; border-right: 1px solid var(--line); transition: background 150ms ease; }
+  .reference-links a:last-child { border-right: 0; }
+  .reference-links a:hover { background: var(--paper); }
+  .reference-links a > span { align-self: flex-end; color: var(--ink-faint); font-family: var(--jp); writing-mode: vertical-rl; }
+  .reference-links strong { margin-top: auto; font-family: var(--display); font-size: 1.8rem; font-weight: 450; }
+  .reference-links small { color: var(--ink-faint); font-family: var(--utility); font-size: .62rem; }
+
+  .home-classes { padding: clamp(4rem, 8vw, 7rem) 0 8rem; }
+  .home-classes > header { display: flex; justify-content: space-between; align-items: end; gap: 2rem; margin-bottom: 3rem; }
+  .class-ribbon { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .class-ribbon li { border-bottom: 1px solid var(--line); }
+  .class-ribbon a { display: grid; grid-template-columns: 4rem minmax(10rem, .7fr) minmax(12rem, 1fr) 1fr; gap: 1.5rem; align-items: center; padding: 1.35rem .3rem; text-decoration: none; transition: padding 160ms ease, background 160ms ease; }
+  .class-ribbon a:hover { padding-left: 1rem; background: rgba(135,153,174,.04); }
+  .class-ribbon__order, .class-ribbon__kind { color: var(--ink-faint); font-family: var(--utility); font-size: .65rem; }
+  .class-ribbon strong { font-family: var(--display); font-size: 1.2rem; font-weight: 450; }
+  .class-ribbon a > span:last-child { color: var(--indigo); font-family: var(--jp); font-size: .9rem; }
+
+  @media (max-width: 800px) {
+    .hero { min-height: 0; grid-template-columns: 1fr; gap: 3rem; }
+    .hero__note { max-width: 23rem; margin: 0 0 1rem; }
+    .reference-strip > header { grid-template-columns: 1fr; }
+    .reference-links { grid-template-columns: repeat(2, 1fr); }
+    .reference-links a { min-height: 11rem; border-bottom: 1px solid var(--line); }
+    .reference-links a:nth-child(2) { border-right: 0; }
+    .home-classes > header { display: block; }
+    .home-classes .text-link { margin-top: 1.2rem; }
+    .class-ribbon a { grid-template-columns: 2.5rem 1fr; gap: .4rem 1rem; }
+    .class-ribbon__kind { grid-column: 2; }
+    .class-ribbon strong { grid-column: 2; }
+    .class-ribbon a > span:last-child { grid-column: 2; }
+  }
+</style>

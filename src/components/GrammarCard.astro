@@ -1,0 +1,51 @@
+---
+import JapaneseText from './JapaneseText.astro';
+
+interface Props {
+  point: {
+    id: string;
+    title: string;
+    pattern: string;
+    summary: string;
+    detail?: string;
+    caution?: string;
+    examples: Array<{
+      tokens: Array<{ text: string; reading?: string; gloss?: string; plain?: boolean }>;
+      english: string;
+      note?: string;
+    }>;
+  };
+  index: number;
+}
+
+const { point, index } = Astro.props;
+---
+
+<article class="grammar-card" id={point.id}>
+  <div class="grammar-card__number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</div>
+  <div class="grammar-card__body">
+    <header>
+      <p class="grammar-card__pattern">{point.pattern}</p>
+      <h2>{point.title}</h2>
+      <p>{point.summary}</p>
+      {point.detail && <p class="grammar-card__detail">{point.detail}</p>}
+    </header>
+    <div class="examples">
+      {point.examples.map((example) => (
+        <figure class="example">
+          <JapaneseText tokens={example.tokens} />
+          <figcaption>
+            <span>{example.english}</span>
+            {example.note && <small>{example.note}</small>}
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+    {point.caution && (
+      <aside class="margin-warning">
+        <span>気をつけて</span>
+        <p>{point.caution}</p>
+      </aside>
+    )}
+  </div>
+</article>

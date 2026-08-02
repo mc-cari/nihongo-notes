@@ -1,0 +1,48 @@
+{
+  "title": "Questions at an izakaya",
+  "japaneseTitle": "居酒屋での会話",
+  "order": 6,
+  "kind": "practice",
+  "eyebrow": "Conversation pattern",
+  "summary": "Use question words to establish time, place, people, quantities, and preferences during a restaurant exchange.",
+  "sourceFiles": ["WH Questions  居酒屋で .pdf"],
+  "takeaways": ["Question words stay in the normal sentence slot.", "どちら compares two choices; どの must modify a noun.", "Counters change shape, so learn them as answer patterns rather than isolated vocabulary."],
+  "grammar": [
+    {
+      "id": "question-slot",
+      "title": "Leave the unknown in place",
+      "pattern": "Noun は Question word ですか",
+      "summary": "Japanese does not move the question word to the front. Put いつ, どこ, だれ, or 何時 where the missing information belongs.",
+      "examples": [
+        {"tokens": [{"text":"予約","reading":"よやく","gloss":"reservation"},{"text":"は","gloss":"topic marker"},{"text":"いつ","gloss":"when"},{"text":"です","gloss":"is"},{"text":"か","gloss":"question marker"},{"text":"。","plain":true}],"english":"When is the reservation?"},
+        {"tokens": [{"text":"居酒屋","reading":"いざかや","gloss":"izakaya"},{"text":"は","gloss":"topic marker"},{"text":"どこ","gloss":"where"},{"text":"です","gloss":"is"},{"text":"か","gloss":"question marker"},{"text":"。","plain":true}],"english":"Where is the izakaya?"}
+      ]
+    },
+    {
+      "id": "two-choice",
+      "title": "Compare two choices",
+      "pattern": "A と B と どちらが …",
+      "summary": "Use どちら for a polite choice between two things. The chosen thing is commonly marked by が with preference adjectives.",
+      "examples": [
+        {"tokens": [{"text":"寿司","reading":"すし","gloss":"sushi"},{"text":"と","gloss":"and"},{"text":"天ぷら","reading":"てんぷら","gloss":"tempura"},{"text":"と","gloss":"and"},{"text":"どちら","gloss":"which of two"},{"text":"が","gloss":"subject marker"},{"text":"好き","reading":"すき","gloss":"liked"},{"text":"です","gloss":"is"},{"text":"か","gloss":"question marker"},{"text":"。","plain":true}],"english":"Which do you like, sushi or tempura?"},
+        {"tokens": [{"text":"どちら","gloss":"which of two"},{"text":"も","gloss":"both"},{"text":"好き","reading":"すき","gloss":"liked"},{"text":"です","gloss":"are"},{"text":"。","plain":true}],"english":"I like both."}
+      ]
+    },
+    {
+      "id": "which-noun",
+      "title": "Choose within a noun category",
+      "pattern": "どの + Noun",
+      "summary": "どの cannot stand alone; it must directly modify a noun such as size, color, or seat.",
+      "examples": [
+        {"tokens": [{"text":"どの","gloss":"which"},{"text":"色","reading":"いろ","gloss":"color"},{"text":"が","gloss":"subject marker"},{"text":"いい","gloss":"good / preferred"},{"text":"です","gloss":"is"},{"text":"か","gloss":"question marker"},{"text":"。","plain":true}],"english":"Which color would you like?"}
+      ],
+      "caution": "どれ stands alone; どの always comes before a noun."
+    }
+  ],
+  "recall": [
+    {"prompt":"Which word asks “which of two”?","answer":"どちら (casual: どっち)"},
+    {"prompt":"Can どの stand by itself?","answer":"No. It must modify a noun."},
+    {"prompt":"Where does a Japanese question word go?","answer":"In the same sentence position as the missing answer."}
+  ],
+  "related": {"particles":["wa","ga","to","mo","no"],"verbs":[],"adjectives":["preference"]}
+}

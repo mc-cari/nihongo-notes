@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageLead from '../components/PageLead.astro';
+import { verbRules } from '../data/reference';
+---
+
+<BaseLayout title="Verbs — Nihongo Notes" description="Compact Japanese verb grammar summaries.">
+  <PageLead eyebrow="Reference shelf" title="Verbs" japanese="動詞" intro="At this stage, the useful question is not “which group is this verb?” but “what time, role, and relationship does this sentence need?”" />
+  <section class="verb-frame">
+    <div class="verb-frame__label"><span lang="ja">ます</span><small>polite frame</small></div>
+    <div>
+      <p class="eyebrow">Anchor idea</p>
+      <h2>The ending carries time and polarity.</h2>
+      <p>The same polite form works for I, you, and they. A time expression tells you whether non-past means a habit or a future event.</p>
+    </div>
+  </section>
+  <section class="rule-sheets">
+    {verbRules.map((rule, index) => (
+      <article id={rule.id}>
+        <span class="rule-sheets__number">{String(index + 1).padStart(2, '0')}</span>
+        <div class="rule-sheets__copy">
+          <h2>{rule.label}</h2>
+          <p>{rule.summary}</p>
+          <div class="form-table">
+            {rule.forms.map(([label, form]) => <div><span>{label}</span><strong lang="ja">{form}</strong></div>)}
+          </div>
+          <aside><span>Remember</span>{rule.note}</aside>
+        </div>
+      </article>
+    ))}
+  </section>
+</BaseLayout>
+
+<style>
+  .verb-frame { display: grid; grid-template-columns: minmax(12rem, .55fr) minmax(0, 1.45fr); gap: clamp(3rem, 8vw, 8rem); padding: 6rem 0; border-bottom: 1px solid var(--line); }
+  .verb-frame__label { width: 12rem; aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid var(--cinnabar); transform: rotate(-2deg); }
+  .verb-frame__label span { color: var(--cinnabar); font-family: var(--jp); font-size: 3rem; }
+  .verb-frame__label small { color: var(--ink-faint); font-family: var(--utility); font-size: .58rem; text-transform: uppercase; }
+  .verb-frame h2 { max-width: 45rem; font-size: clamp(3rem, 6vw, 5rem); }
+  .verb-frame p:last-child { max-width: 44rem; color: var(--ink-dim); }
+  .rule-sheets { padding: 2rem 0 8rem; }
+  .rule-sheets article { display: grid; grid-template-columns: minmax(3rem, 8rem) minmax(0, 1fr); gap: clamp(2rem, 5vw, 5rem); padding: 4rem 0; border-bottom: 1px solid var(--line); }
+  .rule-sheets__number { color: var(--paper-fiber); font-family: var(--display); font-size: clamp(3rem, 8vw, 6rem); line-height: .8; }
+  .rule-sheets__copy { max-width: 58rem; }
+  .rule-sheets h2 { font-size: clamp(2.2rem, 4vw, 3.6rem); }
+  .rule-sheets__copy > p { color: var(--ink-dim); }
+  .form-table { display: grid; grid-template-columns: repeat(2, 1fr); margin: 2rem 0; border: 1px solid var(--line); }
+  .form-table div { min-height: 6.5rem; padding: 1rem; display: flex; flex-direction: column; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .form-table div:nth-child(2n) { border-right: 0; }
+  .form-table span { color: var(--ink-faint); font-family: var(--utility); font-size: .58rem; text-transform: uppercase; }
+  .form-table strong { margin-top: auto; color: var(--brass); font-family: var(--jp); font-size: 1.2rem; font-weight: 400; }
+  .rule-sheets aside { padding-top: 1rem; color: var(--ink-dim); border-top: 1px dashed rgba(215,95,74,.35); font-size: .82rem; }
+  .rule-sheets aside span { margin-right: 1rem; color: var(--cinnabar); font-family: var(--utility); font-size: .58rem; text-transform: uppercase; }
+  @media (max-width: 650px) {
+    .verb-frame, .rule-sheets article { grid-template-columns: 1fr; }
+    .verb-frame__label { width: 8rem; }
+    .form-table { grid-template-columns: 1fr; }
+    .form-table div { border-right: 0; }
+  }
+</style>

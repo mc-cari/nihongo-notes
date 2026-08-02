@@ -1,0 +1,50 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageLead from '../../components/PageLead.astro';
+
+const classes = (await getCollection('classes')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout title="Classes — Nihongo Notes" description="Grammar summaries for each Japanese class.">
+  <PageLead eyebrow="Class archive" title="Classes" japanese="授業" intro="Each page is a compressed memory of the lesson: the pattern, why it works, what is easy to confuse, and enough examples to bring it back." />
+  <ol class="class-index">
+    {classes.map((entry, index) => (
+      <li>
+        <a href={`/classes/${entry.id}/`}>
+          <span class="class-index__line" aria-hidden="true"></span>
+          <span class="class-index__number">{String(index + 1).padStart(2, '0')}</span>
+          <span class="class-index__copy">
+            <small>{entry.data.eyebrow}</small>
+            <strong>{entry.data.title}</strong>
+            <span lang="ja">{entry.data.japaneseTitle}</span>
+            <p>{entry.data.summary}</p>
+          </span>
+          <span class="class-index__arrow" aria-hidden="true">↗</span>
+        </a>
+      </li>
+    ))}
+  </ol>
+</BaseLayout>
+
+<style>
+  .class-index { list-style: none; margin: 0; padding: 3rem 0 8rem; }
+  .class-index li { position: relative; }
+  .class-index a { min-height: 13rem; display: grid; grid-template-columns: 2rem 5rem minmax(0, 1fr) 3rem; gap: 1.5rem; align-items: start; padding: 2.2rem 0; text-decoration: none; border-bottom: 1px solid var(--line); }
+  .class-index__line { width: .7rem; height: .7rem; margin-top: .3rem; border: 2px solid var(--cinnabar); border-radius: 50%; }
+  .class-index li:not(:last-child) .class-index__line::after { content: ''; position: absolute; top: 3.2rem; bottom: -2.2rem; left: .31rem; width: 1px; background: var(--line); }
+  .class-index__number { color: var(--ink-faint); font-family: var(--utility); font-size: .7rem; }
+  .class-index__copy { display: grid; grid-template-columns: minmax(12rem, .7fr) minmax(12rem, 1fr); gap: .35rem 2rem; }
+  .class-index__copy small { grid-column: 1 / -1; color: var(--cinnabar); font-family: var(--utility); font-size: .62rem; text-transform: uppercase; }
+  .class-index__copy strong { font-family: var(--display); font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 450; line-height: 1.05; }
+  .class-index__copy > span { color: var(--indigo); font-family: var(--jp); }
+  .class-index__copy p { grid-column: 2; margin: .5rem 0 0; color: var(--ink-dim); font-size: .9rem; }
+  .class-index__arrow { color: var(--cinnabar); font-size: 1.3rem; transition: transform 150ms ease; }
+  .class-index a:hover .class-index__arrow { transform: translate(4px, -4px); }
+  @media (max-width: 700px) {
+    .class-index a { grid-template-columns: 1rem 2rem 1fr; gap: 1rem; }
+    .class-index__copy { grid-template-columns: 1fr; }
+    .class-index__copy p, .class-index__copy > * { grid-column: 1; }
+    .class-index__arrow { display: none; }
+  }
+</style>

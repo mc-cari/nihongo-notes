@@ -1,0 +1,91 @@
+---
+import '@fontsource/shippori-mincho/400.css';
+import '@fontsource/shippori-mincho/600.css';
+import '@fontsource/zen-kaku-gothic-new/400.css';
+import '@fontsource/zen-kaku-gothic-new/500.css';
+import '@fontsource/zen-kaku-gothic-new/700.css';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource-variable/newsreader';
+import '../styles/global.css';
+import SiteHeader from '../components/SiteHeader.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Nihongo Notes',
+  description = 'Compact notes for Minna no Nihongo classes.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#171612" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2212%22 fill=%22%23171612%22/><text y=%22.82em%22 x=%22.12em%22 font-size=%2280%22 fill=%22%23d75f4a%22>余</text></svg>" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="paper-noise" aria-hidden="true"></div>
+    <SiteHeader />
+    <main id="main"><slot /></main>
+    <footer class="site-footer">
+      <p><span lang="ja">日本語</span> notes worth coming back to.</p>
+      <p>Built for grammar recall, not vocabulary collection.</p>
+    </footer>
+    <script>
+      const clearCurrent = () => {
+        document.querySelectorAll('.jp-token.is-current').forEach((node) => node.classList.remove('is-current'));
+      };
+
+      const positionPopup = (target: Element) => {
+        if (!(target instanceof HTMLElement)) return;
+        const popup = target.querySelector<HTMLElement>('.jp-token__popup');
+        if (!popup) return;
+        const tokenRect = target.getBoundingClientRect();
+        const popupWidth = popup.getBoundingClientRect().width;
+        const centeredLeft = (tokenRect.width - popupWidth) / 2;
+        const minLeft = 10 - tokenRect.left;
+        const maxLeft = window.innerWidth - 10 - popupWidth - tokenRect.left;
+        const clampedLeft = Math.min(Math.max(centeredLeft, minLeft), maxLeft);
+        popup.style.setProperty('--popup-offset', `${clampedLeft - centeredLeft}px`);
+      };
+
+      const reveal = (target: Element) => {
+        if (!(target instanceof HTMLElement) || !target.matches('.jp-token')) return;
+        clearCurrent();
+        positionPopup(target);
+        target.classList.add('is-current');
+      };
+
+      document.addEventListener('pointerover', (event) => {
+        const target = event.target instanceof Element ? event.target.closest('.jp-token') : null;
+        if (target) positionPopup(target);
+      });
+      document.addEventListener('focusin', (event) => {
+        const target = event.target instanceof Element ? event.target.closest('.jp-token') : null;
+        if (target) reveal(target);
+      });
+      document.addEventListener('click', (event) => {
+        const target = event.target as Element;
+        const token = target.closest?.('.jp-token');
+        if (token) reveal(token);
+        else clearCurrent();
+      });
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          clearCurrent();
+        }
+      });
+      window.addEventListener('resize', () => {
+        document.querySelectorAll('.jp-token:hover, .jp-token.is-current').forEach(positionPopup);
+      });
+    </script>
+  </body>
+</html>

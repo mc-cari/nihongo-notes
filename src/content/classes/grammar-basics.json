@@ -1,0 +1,51 @@
+{
+  "title": "Grammar foundations",
+  "japaneseTitle": "文法基礎",
+  "order": 1,
+  "kind": "foundation",
+  "eyebrow": "Start here",
+  "summary": "Build complete thoughts with です and ます, then use particles to show what each noun is doing.",
+  "sourceFiles": ["文法基礎　Basic grammar Noun・Adjectiveです　　Verbます  .pdf"],
+  "takeaways": ["です sentences describe or identify.", "ます sentences place an action in time.", "Particles describe roles; they are not one-to-one English prepositions."],
+  "grammar": [
+    {
+      "id": "noun-desu",
+      "title": "Identify with です",
+      "pattern": "Noun は Noun です",
+      "summary": "Set a topic with は, then identify or describe it. Change です for negative or past time.",
+      "detail": "です is polite and does not change for person. Japanese often omits a topic that is already obvious.",
+      "examples": [
+        {"tokens": [{"text":"私","reading":"わたし","gloss":"I"},{"text":"は","gloss":"topic marker"},{"text":"学生","reading":"がくせい","gloss":"student"},{"text":"です","gloss":"am / is"},{"text":"。","plain":true}],"english":"I am a student."},
+        {"tokens": [{"text":"昨日","reading":"きのう","gloss":"yesterday"},{"text":"は","gloss":"topic marker"},{"text":"雨","reading":"あめ","gloss":"rain"},{"text":"じゃありませんでした","gloss":"was not"},{"text":"。","plain":true}],"english":"It was not rainy yesterday."}
+      ],
+      "caution": "は is written ha but pronounced wa when it is the topic particle."
+    },
+    {
+      "id": "verb-masu",
+      "title": "Place actions in time",
+      "pattern": "Noun は Verb ます",
+      "summary": "The ます family expresses polite non-past, negative, past, and past-negative actions.",
+      "examples": [
+        {"tokens": [{"text":"毎朝","reading":"まいあさ","gloss":"every morning"},{"text":"八時","reading":"はちじ","gloss":"eight o’clock"},{"text":"に","gloss":"time-point marker"},{"text":"起きます","reading":"おきます","gloss":"wake up"},{"text":"。","plain":true}],"english":"I wake up at eight every morning."},
+        {"tokens": [{"text":"昨日","reading":"きのう","gloss":"yesterday"},{"text":"働きませんでした","reading":"はたらきませんでした","gloss":"did not work"},{"text":"。","plain":true}],"english":"I did not work yesterday."}
+      ],
+      "caution": "Non-past ます covers both habits and future events. Time words provide the distinction."
+    },
+    {
+      "id": "transitive-object",
+      "title": "Act on something",
+      "pattern": "Place で Noun を Verb ます",
+      "summary": "Use を for the thing directly affected and で for the place, tool, language, or means of the action.",
+      "examples": [
+        {"tokens": [{"text":"家","reading":"いえ","gloss":"home"},{"text":"で","gloss":"place of action"},{"text":"晩ご飯","reading":"ばんごはん","gloss":"dinner"},{"text":"を","gloss":"object marker"},{"text":"食べます","reading":"たべます","gloss":"eat"},{"text":"。","plain":true}],"english":"I eat dinner at home."},
+        {"tokens": [{"text":"英語","reading":"えいご","gloss":"English"},{"text":"で","gloss":"language / means"},{"text":"論文","reading":"ろんぶん","gloss":"academic paper"},{"text":"を","gloss":"object marker"},{"text":"書きます","reading":"かきます","gloss":"write"},{"text":"。","plain":true}],"english":"I write the paper in English."}
+      ]
+    }
+  ],
+  "recall": [
+    {"prompt":"How do you make です past-negative?","answer":"じゃありませんでした"},
+    {"prompt":"Which particle marks the direct object of a transitive verb?","answer":"を"},
+    {"prompt":"How do you politely invite someone to do something?","answer":"Verb ませんか"}
+  ],
+  "related": {"particles":["wa","mo","ga","o","ni","de"],"verbs":["masu-time","transitive","invitation"],"adjectives":["i-adjectives","na-adjectives","preference"]}
+}

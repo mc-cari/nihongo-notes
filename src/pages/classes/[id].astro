@@ -1,0 +1,91 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GrammarCard from '../../components/GrammarCard.astro';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('classes');
+  return entries.map((entry) => ({ params: { id: entry.id }, props: { entry } }));
+}
+
+interface Props { entry: CollectionEntry<'classes'>; }
+const { entry } = Astro.props;
+const { data } = entry;
+---
+
+<BaseLayout title={`${data.title} — Nihongo Notes`} description={data.summary}>
+  <header class="class-lead">
+    <div class="class-lead__top">
+      <div>
+        <a class="back-link" href="/classes/">← All classes</a>
+        <p class="eyebrow">{data.eyebrow}</p>
+        <h1>{data.title}</h1>
+      </div>
+      <span class="class-lead__jp" lang="ja">{data.japaneseTitle}</span>
+    </div>
+    <div class="class-lead__summary">
+      <p>{data.summary}</p>
+      <div class="takeaways">
+        <span>Keep these three</span>
+        <ul>{data.takeaways.map((item) => <li>{item}</li>)}</ul>
+      </div>
+    </div>
+  </header>
+
+  <section class="grammar-list" aria-label="Grammar points">
+    {data.grammar.map((point, index) => <GrammarCard point={point} index={index} />)}
+  </section>
+
+  <section class="recall-section">
+    <header>
+      <p class="eyebrow">Close the notes</p>
+      <h2>Can you bring it back?</h2>
+    </header>
+    <div class="recall-list">
+      {data.recall.map((item, index) => (
+        <details>
+          <summary><span>{String(index + 1).padStart(2, '0')}</span>{item.prompt}</summary>
+          <p>{item.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <nav class="related-nav" aria-label="Related reference pages">
+    <span>Continue in the reference shelf</span>
+    {data.related.particles.length > 0 && <a href={`/particles/#${data.related.particles[0]}`}>Particles ↗</a>}
+    {data.related.verbs.length > 0 && <a href="/verbs/">Verbs ↗</a>}
+    {data.related.adjectives.length > 0 && <a href="/adjectives/">Adjectives ↗</a>}
+  </nav>
+</BaseLayout>
+
+<style>
+  .class-lead { padding: clamp(4rem, 9vw, 8rem) 0 4rem; border-bottom: 1px solid var(--line); }
+  .class-lead__top { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 3rem; align-items: end; }
+  .back-link { display: inline-block; margin-bottom: 3rem; color: var(--ink-faint); font-family: var(--utility); font-size: .65rem; text-underline-offset: .3rem; }
+  .class-lead h1 { max-width: 60rem; margin: 0; font-size: clamp(3.4rem, 9vw, 8rem); letter-spacing: -.055em; }
+  .class-lead__jp { color: var(--cinnabar); font-family: var(--jp); font-size: clamp(1.2rem, 2.5vw, 2rem); writing-mode: vertical-rl; letter-spacing: .12em; }
+  .class-lead__summary { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(18rem, .8fr); gap: clamp(2rem, 7vw, 7rem); margin-top: 4rem; align-items: start; }
+  .class-lead__summary > p { max-width: 45rem; color: var(--ink-dim); font-size: clamp(1.05rem, 2vw, 1.35rem); }
+  .takeaways { padding: 1.2rem 0 0 1.2rem; border-top: 1px solid var(--cinnabar); }
+  .takeaways > span { color: var(--cinnabar); font-family: var(--utility); font-size: .62rem; text-transform: uppercase; }
+  .takeaways ul { margin: 1rem 0 0; padding-left: 1.1rem; color: var(--ink-dim); font-size: .85rem; }
+  .takeaways li + li { margin-top: .5rem; }
+  .recall-section { display: grid; grid-template-columns: minmax(16rem, .7fr) minmax(0, 1.3fr); gap: clamp(2rem, 7vw, 7rem); padding: 6rem 0; border-top: 1px solid var(--line); }
+  .recall-section h2 { max-width: 23rem; font-size: clamp(2.5rem, 5vw, 4rem); }
+  .recall-list { border-top: 1px solid var(--line); }
+  .recall-list details { border-bottom: 1px solid var(--line); }
+  .recall-list summary { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; padding: 1.2rem .5rem; cursor: pointer; list-style: none; }
+  .recall-list summary::-webkit-details-marker { display: none; }
+  .recall-list summary span { color: var(--cinnabar); font-family: var(--utility); font-size: .68rem; }
+  .recall-list details p { margin: 0; padding: 0 1rem 1.4rem 4.5rem; color: var(--indigo); }
+  .related-nav { display: flex; align-items: center; gap: 1.4rem; padding: 2rem 0 5rem; border-top: 1px solid var(--line); }
+  .related-nav span { margin-right: auto; color: var(--ink-faint); font-family: var(--utility); font-size: .62rem; text-transform: uppercase; }
+  .related-nav a { color: var(--ink-dim); font-family: var(--utility); font-size: .7rem; text-underline-offset: .3rem; }
+  @media (max-width: 720px) {
+    .class-lead__jp { display: none; }
+    .class-lead__summary, .recall-section { grid-template-columns: 1fr; }
+    .related-nav { align-items: start; flex-direction: column; }
+    .related-nav span { margin: 0 0 .4rem; }
+  }
+</style>

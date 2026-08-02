@@ -1,0 +1,50 @@
+{
+  "title": "Time and daily actions",
+  "japaneseTitle": "みんなの日本語 第4課",
+  "order": 4,
+  "kind": "lesson",
+  "bookLesson": 4,
+  "eyebrow": "Minna no Nihongo · Lesson 4",
+  "summary": "Say when things happen, define time ranges, and move polite verbs between non-past and past.",
+  "sourceFiles": ["みんなの日本語　第4課.pdf", "001.jpg", "002.jpg", "003.jpg", "004.jpg"],
+  "takeaways": ["Exact clock times take に; relative times usually do not.", "から and まで independently mark the start and end of a range.", "ました and ませんでした place an action in the past."],
+  "grammar": [
+    {
+      "id": "exact-time",
+      "title": "Pin an action to a time",
+      "pattern": "Time に Verb ます",
+      "summary": "Use に with exact points such as clock times and calendar dates.",
+      "examples": [
+        {"tokens": [{"text":"毎朝","reading":"まいあさ","gloss":"every morning"},{"text":"七時半","reading":"しちじはん","gloss":"seven thirty"},{"text":"に","gloss":"time-point marker"},{"text":"起きます","reading":"おきます","gloss":"wake up"},{"text":"。","plain":true}],"english":"I wake up at seven thirty every morning."},
+        {"tokens": [{"text":"日曜日","reading":"にちようび","gloss":"Sunday"},{"text":"に","gloss":"time marker; optional here"},{"text":"休みます","reading":"やすみます","gloss":"rest / take a day off"},{"text":"。","plain":true}],"english":"I rest on Sunday.","note":"Weekdays may use に or omit it."}
+      ],
+      "caution": "今日, 明日, 昨日, 毎日, 今朝 and similar relative times normally omit に."
+    },
+    {
+      "id": "range",
+      "title": "Draw a time span",
+      "pattern": "Time から Time まで",
+      "summary": "から marks the starting boundary and まで marks the ending boundary. Either can stand alone.",
+      "examples": [
+        {"tokens": [{"text":"九時","reading":"くじ","gloss":"nine o’clock"},{"text":"から","gloss":"from"},{"text":"五時","reading":"ごじ","gloss":"five o’clock"},{"text":"まで","gloss":"until"},{"text":"働きます","reading":"はたらきます","gloss":"work"},{"text":"。","plain":true}],"english":"I work from nine until five."},
+        {"tokens": [{"text":"昼休み","reading":"ひるやすみ","gloss":"lunch break"},{"text":"は","gloss":"topic marker"},{"text":"一時","reading":"いちじ","gloss":"one o’clock"},{"text":"まで","gloss":"until"},{"text":"です","gloss":"is"},{"text":"。","plain":true}],"english":"The lunch break is until one."}
+      ]
+    },
+    {
+      "id": "past-action",
+      "title": "Ask and answer about the past",
+      "pattern": "Verb ましたか",
+      "summary": "Use ました for an affirmative past action and ませんでした for a negative past action.",
+      "examples": [
+        {"tokens": [{"text":"昨日","reading":"きのう","gloss":"yesterday"},{"text":"勉強しました","reading":"べんきょうしました","gloss":"studied"},{"text":"か","gloss":"question marker"},{"text":"。","plain":true}],"english":"Did you study yesterday?"},
+        {"tokens": [{"text":"いいえ","gloss":"no"},{"text":"勉強しませんでした","reading":"べんきょうしませんでした","gloss":"did not study"},{"text":"。","plain":true}],"english":"No, I did not study."}
+      ]
+    }
+  ],
+  "recall": [
+    {"prompt":"Does 毎朝 take に?","answer":"Normally no. Relative/repeating time words do not need に."},
+    {"prompt":"What marks the end of a time range?","answer":"まで"},
+    {"prompt":"Make 働きます past-negative.","answer":"働きませんでした"}
+  ],
+  "related": {"particles":["wa","ni","kara","made"],"verbs":["masu-time"],"adjectives":[]}
+}

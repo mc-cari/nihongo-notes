@@ -1,0 +1,49 @@
+{
+  "title": "Introduce yourself",
+  "japaneseTitle": "自己紹介",
+  "order": 2,
+  "kind": "practice",
+  "eyebrow": "Conversation pattern",
+  "summary": "Move through identity, origin, arrival, home, language ability, and first impressions without repeating obvious subjects.",
+  "sourceFiles": ["自己紹介　Introduce yourself　.pdf"],
+  "takeaways": ["から marks origin; に marks the time or destination point.", "Japanese naturally drops 私は after the topic is clear.", "あまり pairs with a negative expression for “not very much.”"],
+  "grammar": [
+    {
+      "id": "origin-arrival",
+      "title": "Origin and arrival",
+      "pattern": "Place から来ました / Time に来ました",
+      "summary": "Use から for where movement begins and に for the time point or destination.",
+      "examples": [
+        {"tokens": [{"text":"チリ","gloss":"Chile"},{"text":"から","gloss":"from"},{"text":"来ました","reading":"きました","gloss":"came"},{"text":"。","plain":true}],"english":"I came from Chile."},
+        {"tokens": [{"text":"四月","reading":"しがつ","gloss":"April"},{"text":"に","gloss":"time-point marker"},{"text":"日本","reading":"にほん","gloss":"Japan"},{"text":"に","gloss":"destination marker"},{"text":"来ました","reading":"きました","gloss":"came"},{"text":"。","plain":true}],"english":"I came to Japan in April."}
+      ]
+    },
+    {
+      "id": "ability-ga",
+      "title": "What you understand takes が",
+      "pattern": "Noun が分かります",
+      "summary": "With 分かります, the understood thing is marked by が, even though English makes it an object.",
+      "examples": [
+        {"tokens": [{"text":"日本語","reading":"にほんご","gloss":"Japanese language"},{"text":"が","gloss":"subject marker"},{"text":"少し","reading":"すこし","gloss":"a little"},{"text":"分かります","reading":"わかります","gloss":"understand"},{"text":"。","plain":true}],"english":"I understand a little Japanese."},
+        {"tokens": [{"text":"あまり","gloss":"not very much"},{"text":"分かりません","reading":"わかりません","gloss":"do not understand"},{"text":"。","plain":true}],"english":"I do not understand very well."}
+      ],
+      "caution": "あまり normally expects a negative ending."
+    },
+    {
+      "id": "current-state",
+      "title": "Describe a current state",
+      "pattern": "Place に住んでいます",
+      "summary": "The ています form can describe an ongoing state. Here, に marks the place where the person resides.",
+      "examples": [
+        {"tokens": [{"text":"今","reading":"いま","gloss":"now"},{"text":"東京","reading":"とうきょう","gloss":"Tokyo"},{"text":"に","gloss":"location marker"},{"text":"住んでいます","reading":"すんでいます","gloss":"live / reside"},{"text":"。","plain":true}],"english":"I live in Tokyo now."}
+      ],
+      "caution": "Learn this as a useful whole pattern for now; full て-form rules come later."
+    }
+  ],
+  "recall": [
+    {"prompt":"How do you say “I came from Chile”?","answer":"チリから来ました。"},
+    {"prompt":"Which particle marks the language in 日本語＿分かります?","answer":"が"},
+    {"prompt":"What expression pairs with a negative to mean “not very”?","answer":"あまり"}
+  ],
+  "related": {"particles":["wa","ga","ni","kara"],"verbs":["motion"],"adjectives":["i-adjectives"]}
+}

@@ -1,0 +1,22 @@
+---
+const pathname = Astro.url.pathname;
+const links = [
+  { href: '/classes/', label: 'Classes' },
+  { href: '/particles/', label: 'Particles' },
+  { href: '/verbs/', label: 'Verbs' },
+  { href: '/adjectives/', label: 'Adjectives' },
+  { href: '/kana/', label: 'Kana' },
+];
+---
+
+<header class="site-header">
+  <a class="site-mark" href="/" aria-label="Nihongo Notes home">
+    <span class="site-mark__jp" lang="ja">日本語</span>
+    <span class="site-mark__en">nihongo notes</span>
+  </a>
+  <nav aria-label="Primary navigation">
+    {links.map((link) => (
+      <a href={link.href} aria-current={pathname.startsWith(link.href) ? 'page' : undefined}>{link.label}</a>
+    ))}
+  </nav>
+</header>

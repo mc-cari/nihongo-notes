@@ -1,0 +1,165 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageLead from '../components/PageLead.astro';
+import JapaneseText from '../components/JapaneseText.astro';
+import { particles } from '../data/reference';
+
+const waGa = [
+  { label: 'The frame', jp: [{text:'象',reading:'ぞう',gloss:'elephant'},{text:'は',gloss:'topic marker'},{text:'鼻',reading:'はな',gloss:'nose'},{text:'が',gloss:'subject marker'},{text:'長い',reading:'ながい',gloss:'long'},{text:'。',plain:true}], en: 'As for elephants, their trunks are long.', note: 'は sets elephants as the frame; が identifies what is long.' },
+  { label: 'The answer', jp: [{text:'だれ',gloss:'who'},{text:'が',gloss:'subject marker'},{text:'来ました',reading:'きました',gloss:'came'},{text:'か',gloss:'question marker'},{text:'。',plain:true}], en: 'Who came?', note: 'The missing subject is the new information, so the answer also takes が.' },
+  { label: 'The contrast', jp: [{text:'魚',reading:'さかな',gloss:'fish'},{text:'は',gloss:'contrast marker'},{text:'食べます',reading:'たべます',gloss:'eat'},{text:'。',plain:true}], en: 'I eat fish (but perhaps not meat).', note: 'The contrast can remain implicit.' },
+];
+
+const niDe = [
+  { label: 'Target / existence', jp: [{text:'図書館',reading:'としょかん',gloss:'library'},{text:'に',gloss:'location of existence'},{text:'本',reading:'ほん',gloss:'book(s)'},{text:'が',gloss:'subject marker'},{text:'あります',gloss:'exist'},{text:'。',plain:true}], en: 'There are books in the library.', note: 'に pins the books to their location.' },
+  { label: 'Scene of action', jp: [{text:'図書館',reading:'としょかん',gloss:'library'},{text:'で',gloss:'place of action'},{text:'本',reading:'ほん',gloss:'book'},{text:'を',gloss:'object marker'},{text:'読みます',reading:'よみます',gloss:'read'},{text:'。',plain:true}], en: 'I read a book at the library.', note: 'で sets the stage where reading happens.' },
+  { label: 'Destination', jp: [{text:'図書館',reading:'としょかん',gloss:'library'},{text:'に',gloss:'destination marker'},{text:'行きます',reading:'いきます',gloss:'go'},{text:'。',plain:true}], en: 'I go to the library.', note: 'Movement lands on a target, so use に.' },
+];
+---
+
+<BaseLayout title="Particles — Nihongo Notes" description="A practical guide to Japanese particle roles and contrasts.">
+  <PageLead eyebrow="The difficult shelf" title="Particles" japanese="助詞" intro="Particles do not translate cleanly word-for-word. Treat each one as a signal that tells you how a phrase fits into the sentence." />
+
+  <section class="particle-map" aria-labelledby="map-title">
+    <header>
+      <p class="eyebrow">Role map</p>
+      <h2 id="map-title">Read the job,<br />not the English.</h2>
+    </header>
+    <div class="particle-map__grid">
+      {particles.map((particle) => (
+        <a href={`#${particle.id}`}>
+          <strong lang="ja">{particle.kana}</strong>
+          <span>{particle.role}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="contrast-section" aria-labelledby="wa-ga-title">
+    <header class="contrast-title">
+      <span class="contrast-title__pair" lang="ja">は<br /><i>／</i><br />が</span>
+      <div>
+        <p class="eyebrow">Contrast 01</p>
+        <h2 id="wa-ga-title">Frame versus focus</h2>
+        <p><strong>は</strong> establishes the frame you want the listener to use. <strong>が</strong> identifies the item that satisfies the predicate or answers the open question.</p>
+      </div>
+    </header>
+    <div class="contrast-cases">
+      {waGa.map((item) => (
+        <article>
+          <small>{item.label}</small>
+          <JapaneseText tokens={item.jp} />
+          <p>{item.en}</p>
+          <aside>{item.note}</aside>
+        </article>
+      ))}
+    </div>
+    <p class="decision-line"><span>Fast check</span> Is this already our frame? Try は. Is this the missing or newly identified subject? Try が. Both can appear in one sentence because they do different jobs.</p>
+  </section>
+
+  <section class="contrast-section" aria-labelledby="ni-de-title">
+    <header class="contrast-title">
+      <span class="contrast-title__pair" lang="ja">に<br /><i>／</i><br />で</span>
+      <div>
+        <p class="eyebrow">Contrast 02</p>
+        <h2 id="ni-de-title">Point versus scene</h2>
+        <p><strong>に</strong> points to a target, fixed point, or location of existence. <strong>で</strong> describes the scene or means through which an action occurs.</p>
+      </div>
+    </header>
+    <div class="contrast-cases">
+      {niDe.map((item) => (
+        <article>
+          <small>{item.label}</small>
+          <JapaneseText tokens={item.jp} />
+          <p>{item.en}</p>
+          <aside>{item.note}</aside>
+        </article>
+      ))}
+    </div>
+    <p class="decision-line"><span>Fast check</span> Is the place a destination or where something exists? Use に. Is an action unfolding there—or is the noun the tool or method? Use で.</p>
+  </section>
+
+  <section class="particle-notes" aria-labelledby="notes-title">
+    <header>
+      <p class="eyebrow">Individual notes</p>
+      <h2 id="notes-title">One particle at a time.</h2>
+    </header>
+    <div class="particle-notes__list">
+      {particles.map((particle) => (
+        <article id={particle.id}>
+          <div class="particle-glyph">
+            <strong lang="ja">{particle.kana}</strong>
+            <span>spoken “{particle.spoken}”</span>
+          </div>
+          <div class="particle-copy">
+            <p class="particle-role">{particle.role}</p>
+            <h3>{particle.core}</h3>
+            <ul>{particle.uses.map((use) => <li>{use}</li>)}</ul>
+            <p class="particle-caution"><span>Watch</span>{particle.caution}</p>
+          </div>
+          <div class="particle-examples">
+            {particle.examples.map((example) => (
+              <figure>
+                <JapaneseText tokens={example.tokens} />
+                <figcaption>{example.english}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .particle-map { display: grid; grid-template-columns: minmax(16rem, .7fr) minmax(0, 1.3fr); gap: clamp(3rem, 7vw, 7rem); padding: 6rem 0; border-bottom: 1px solid var(--line); }
+  .particle-map h2, .particle-notes h2 { font-size: clamp(2.8rem, 5vw, 4.8rem); }
+  .particle-map__grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .particle-map__grid a { min-height: 8rem; padding: 1rem; display: flex; flex-direction: column; text-decoration: none; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .particle-map__grid a:hover { background: var(--paper); }
+  .particle-map__grid strong { color: var(--cinnabar); font-family: var(--jp); font-size: 2rem; font-weight: 400; }
+  .particle-map__grid span { margin-top: auto; color: var(--ink-faint); font-family: var(--utility); font-size: .58rem; text-transform: uppercase; }
+
+  .contrast-section { padding: clamp(5rem, 10vw, 9rem) 0; border-bottom: 1px solid var(--line); }
+  .contrast-title { display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: clamp(2rem, 6vw, 6rem); max-width: 58rem; margin-bottom: 3rem; }
+  .contrast-title__pair { color: var(--cinnabar); font-family: var(--jp); font-size: 3.8rem; line-height: .65; text-align: center; }
+  .contrast-title__pair i { color: var(--ink-faint); font-family: var(--display); font-size: 1rem; font-style: normal; }
+  .contrast-title h2 { margin-bottom: 1rem; font-size: clamp(3rem, 6vw, 5.5rem); letter-spacing: -.04em; }
+  .contrast-title p:last-child { color: var(--ink-dim); font-size: 1.03rem; }
+  .contrast-cases { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); }
+  .contrast-cases article { min-height: 19rem; padding: 1.4rem; display: flex; flex-direction: column; border-right: 1px solid var(--line); }
+  .contrast-cases article:last-child { border-right: 0; }
+  .contrast-cases small { margin-bottom: 2rem; color: var(--indigo); font-family: var(--utility); font-size: .62rem; text-transform: uppercase; }
+  .contrast-cases .jp-text { font-size: 1.22rem; }
+  .contrast-cases article > p { margin: 1.2rem 0 0; color: var(--ink-dim); font-size: .82rem; }
+  .contrast-cases aside { margin-top: auto; padding-top: 1rem; color: var(--ink-faint); border-top: 1px solid var(--line); font-size: .74rem; }
+  .decision-line { max-width: 55rem; margin: 2rem 0 0 auto; color: var(--ink-dim); font-size: .9rem; }
+  .decision-line span { margin-right: .8rem; color: var(--cinnabar); font-family: var(--utility); font-size: .6rem; text-transform: uppercase; }
+
+  .particle-notes { padding: 7rem 0; }
+  .particle-notes > header { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; margin-bottom: 4rem; }
+  .particle-notes__list > article { scroll-margin-top: 2rem; display: grid; grid-template-columns: 8rem minmax(16rem, .8fr) minmax(18rem, 1.2fr); gap: clamp(1.5rem, 4vw, 4rem); padding: 3.5rem 0; border-top: 1px solid var(--line); }
+  .particle-glyph strong { display: block; color: var(--cinnabar); font-family: var(--jp); font-size: 4.5rem; font-weight: 400; line-height: 1; }
+  .particle-glyph span { color: var(--ink-faint); font-family: var(--utility); font-size: .56rem; }
+  .particle-role { color: var(--indigo); font-family: var(--utility); font-size: .65rem; text-transform: uppercase; }
+  .particle-copy h3 { font-family: var(--body); font-size: 1.05rem; line-height: 1.55; }
+  .particle-copy ul { padding-left: 1.1rem; color: var(--ink-dim); font-size: .82rem; }
+  .particle-caution { padding-top: 1rem; color: var(--ink-faint); border-top: 1px dashed rgba(215,95,74,.35); font-size: .78rem; }
+  .particle-caution span { margin-right: .7rem; color: var(--cinnabar); font-family: var(--utility); font-size: .58rem; text-transform: uppercase; }
+  .particle-examples figure { margin: 0; padding: 1.1rem 0; border-bottom: 1px solid var(--line); }
+  .particle-examples .jp-text { font-size: 1.2rem; }
+  .particle-examples figcaption { color: var(--ink-faint); font-size: .75rem; }
+
+  @media (max-width: 800px) {
+    .particle-map { grid-template-columns: 1fr; }
+    .particle-map__grid { grid-template-columns: repeat(2, 1fr); }
+    .contrast-title { grid-template-columns: 4rem 1fr; }
+    .contrast-title__pair { font-size: 2.4rem; }
+    .contrast-cases { grid-template-columns: 1fr; }
+    .contrast-cases article { min-height: 14rem; border-right: 0; border-bottom: 1px solid var(--line); }
+    .particle-notes > header { grid-template-columns: 1fr; }
+    .particle-notes__list > article { grid-template-columns: 4.5rem 1fr; }
+    .particle-glyph strong { font-size: 3rem; }
+    .particle-examples { grid-column: 2; }
+  }
+</style>

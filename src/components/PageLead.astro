@@ -1,0 +1,18 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  japanese?: string;
+  intro: string;
+}
+const { eyebrow, title, japanese, intro } = Astro.props;
+---
+
+<header class="page-lead">
+  <p class="eyebrow">{eyebrow}</p>
+  <div class="page-lead__title">
+    <h1>{title}</h1>
+    {japanese && <span lang="ja">{japanese}</span>}
+  </div>
+  <p class="page-lead__intro">{intro}</p>
+</header>

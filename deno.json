@@ -1,0 +1,15 @@
+{
+  "nodeModulesDir": "auto",
+  "lock": {
+    "path": "./deno.lock"
+  },
+  "minimumDependencyAge": "P1D",
+  "tasks": {
+    "dev": "astro dev",
+    "check": "astro check",
+    "validate:content": "deno run --allow-read=src/content/classes,src/data/reference.ts scripts/validate-content.mjs",
+    "build": "deno task validate:content && astro check && astro build",
+    "security:check": "deno outdated --frozen --compatible",
+    "preview": "astro preview"
+  }
+}

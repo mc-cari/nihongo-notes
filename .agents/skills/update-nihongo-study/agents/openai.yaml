@@ -1,0 +1,4 @@
+interface:
+  display_name: "Nihongo Study Updater"
+  short_description: "Turn new classes into linked grammar notes"
+  default_prompt: "Use $update-nihongo-study to add my newest Japanese class and update the shared references."
