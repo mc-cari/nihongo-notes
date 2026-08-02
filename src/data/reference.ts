@@ -86,11 +86,15 @@ export const particles: Particle[] = [
     classes: ['minna-lesson-5'],
   },
   {
-    id: 'to', kana: 'と', spoken: 'to', role: 'with / and / quotation',
-    core: 'Joins one complete partner or item to another.',
-    uses: ['Companion with movement or action.', 'Exhaustive “and” between nouns.', 'Quotation in later lessons.'],
-    caution: 'For a partial, non-exhaustive list, later use や rather than と.',
-    examples: [{ tokens: [w('友達', 'ともだち', 'friend'), w('と', undefined, 'with'), w('行きます', 'いきます', 'go'), p('。')], english: 'I go with a friend.' }],
+    id: 'to', kana: 'と', spoken: 'to', role: 'counterpart / and / quotation',
+    core: 'Links something as a complete counterpart: another participant in the same event, another item in a closed list, or the content of words and thoughts.',
+    uses: ['Shared participation: person と action means doing the action together or alongside that person.', 'A mutual counterpart in actions such as talking, marrying, or working together.', 'Exhaustive “and” between nouns: A と B presents the named items as the complete set.', 'Quotation before verbs such as 言います and 思います in later lessons.'],
+    caution: 'と is not a general marker for every relationship. Compare 先生と話します (“talk with the teacher,” a two-way exchange) with 先生に話します (“speak to the teacher,” who is the target). Use の for a noun-to-noun relationship and や for a partial list.',
+    examples: [
+      { tokens: [w('友達', 'ともだち', 'friend'), w('と', undefined, 'with / joint participant'), w('映画', 'えいが', 'movie'), w('を', undefined, 'object marker'), w('見ます', 'みます', 'watch'), p('。')], english: 'I watch a movie with a friend.' },
+      { tokens: [w('先生', 'せんせい', 'teacher'), w('と', undefined, 'with / conversation partner'), w('日本語', 'にほんご', 'Japanese language'), w('で', undefined, 'language used'), w('話します', 'はなします', 'talk'), p('。')], english: 'I talk with the teacher in Japanese.' },
+      { tokens: [w('パン', undefined, 'bread'), w('と', undefined, 'and'), w('卵', 'たまご', 'egg(s)'), w('を', undefined, 'object marker'), w('買います', 'かいます', 'buy'), p('。')], english: 'I buy bread and eggs.' },
+    ],
     classes: ['minna-lesson-5', 'izakaya-questions'],
   },
   {
