@@ -6,7 +6,7 @@
   "eyebrow": "Start here",
   "summary": "Build complete thoughts with です and ます, then use particles to show what each noun is doing.",
   "sourceFiles": ["文法基礎　Basic grammar Noun・Adjectiveです　　Verbます  .pdf"],
-  "takeaways": ["です sentences describe or identify.", "ます sentences place an action in time.", "Particles describe roles; they are not one-to-one English prepositions."],
+  "takeaways": ["です sentences describe or identify.", "ます sentences place an action in time.", "Particles show Japanese roles: actions affect を, while the wanted thing takes が."],
   "grammar": [
     {
       "id": "noun-desu",
@@ -40,12 +40,24 @@
         {"tokens": [{"text":"家","reading":"いえ","gloss":"home"},{"text":"で","gloss":"place of action"},{"text":"晩ご飯","reading":"ばんごはん","gloss":"dinner"},{"text":"を","gloss":"object marker"},{"text":"食べます","reading":"たべます","gloss":"eat"},{"text":"。","plain":true}],"english":"I eat dinner at home."},
         {"tokens": [{"text":"英語","reading":"えいご","gloss":"English"},{"text":"で","gloss":"language / means"},{"text":"論文","reading":"ろんぶん","gloss":"academic paper"},{"text":"を","gloss":"object marker"},{"text":"書きます","reading":"かきます","gloss":"write"},{"text":"。","plain":true}],"english":"I write the paper in English."}
       ]
+    },
+    {
+      "id": "noun-ga-hoshii",
+      "title": "Say what you want",
+      "pattern": "（私は）Noun が ほしいです",
+      "summary": "Use が to mark the thing you want. The person who wants it can be framed with は and is often omitted when obvious.",
+      "detail": "Ask 何がほしいですか. Because ほしい is an い-adjective, its negative form is ほしくないです.",
+      "examples": [
+        {"tokens": [{"text":"新しい","reading":"あたらしい","gloss":"new"},{"text":"スマホ","gloss":"smartphone"},{"text":"が","gloss":"wanted-item marker"},{"text":"ほしいです","gloss":"want"},{"text":"。","plain":true}],"english":"I want a new smartphone."},
+        {"tokens": [{"text":"何も","reading":"なにも","gloss":"nothing + negative"},{"text":"ほしくないです","gloss":"do not want"},{"text":"。","plain":true}],"english":"I do not want anything."}
+      ],
+      "caution": "Do not mark the wanted thing with を. English says “want something,” but this Japanese pattern marks that thing with が."
     }
   ],
   "recall": [
     {"prompt":"How do you make です past-negative?","answer":"じゃありませんでした"},
-    {"prompt":"Which particle marks the direct object of a transitive verb?","answer":"を"},
-    {"prompt":"How do you politely invite someone to do something?","answer":"Verb ませんか"}
+    {"prompt":"Which particles mark a direct object and the thing you want?","answer":"を marks a direct object; が marks the wanted thing."},
+    {"prompt":"How do you say “I do not want anything”?","answer":"何もほしくないです。"}
   ],
   "related": {"particles":["wa","mo","ga","o","ni","de"],"verbs":["masu-time","transitive","invitation"],"adjectives":["i-adjectives","na-adjectives","preference"]}
 }
