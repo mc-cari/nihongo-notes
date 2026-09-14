@@ -6,12 +6,12 @@
   "eyebrow": "Conversation pattern",
   "summary": "Move through identity, origin, arrival, home, language ability, and first impressions without repeating obvious subjects.",
   "sourceFiles": ["自己紹介　Introduce yourself　.pdf"],
-  "takeaways": ["から marks origin; に marks the time or destination point.", "Japanese naturally drops 私は after the topic is clear.", "あまり pairs with a negative expression for “not very much.”"],
+  "takeaways": ["から marks origin; に marks the time or destination point.", "Japanese naturally drops [[私は|わたしは]] after the topic is clear.", "あまり pairs with a negative expression for “not very much.”"],
   "grammar": [
     {
       "id": "origin-arrival",
       "title": "Origin and arrival",
-      "pattern": "Place から来ました / Time に来ました",
+      "pattern": "Place から[[来ました|きました]] / Time に[[来ました|きました]]",
       "summary": "Use から for where movement begins and に for the time point or destination.",
       "examples": [
         {"tokens": [{"text":"チリ","gloss":"Chile"},{"text":"から","gloss":"from"},{"text":"来ました","reading":"きました","gloss":"came"},{"text":"。","plain":true}],"english":"I came from Chile."},
@@ -21,8 +21,8 @@
     {
       "id": "ability-ga",
       "title": "What you understand takes が",
-      "pattern": "Noun が分かります",
-      "summary": "With 分かります, the understood thing is marked by が, even though English makes it an object.",
+      "pattern": "Noun が[[分かります|わかります]]",
+      "summary": "With [[分かります|わかります]], the understood thing is marked by が, even though English makes it an object.",
       "examples": [
         {"tokens": [{"text":"日本語","reading":"にほんご","gloss":"Japanese language"},{"text":"が","gloss":"subject marker"},{"text":"少し","reading":"すこし","gloss":"a little"},{"text":"分かります","reading":"わかります","gloss":"understand"},{"text":"。","plain":true}],"english":"I understand a little Japanese."},
         {"tokens": [{"text":"あまり","gloss":"not very much"},{"text":"分かりません","reading":"わかりません","gloss":"do not understand"},{"text":"。","plain":true}],"english":"I do not understand very well."}
@@ -32,7 +32,7 @@
     {
       "id": "current-state",
       "title": "Describe a current state",
-      "pattern": "Place に住んでいます",
+      "pattern": "Place に[[住んでいます|すんでいます]]",
       "summary": "The ています form can describe an ongoing state. Here, に marks the place where the person resides.",
       "examples": [
         {"tokens": [{"text":"今","reading":"いま","gloss":"now"},{"text":"東京","reading":"とうきょう","gloss":"Tokyo"},{"text":"に","gloss":"location marker"},{"text":"住んでいます","reading":"すんでいます","gloss":"live / reside"},{"text":"。","plain":true}],"english":"I live in Tokyo now."}
@@ -41,8 +41,8 @@
     }
   ],
   "recall": [
-    {"prompt":"How do you say “I came from Chile”?","answer":"チリから来ました。"},
-    {"prompt":"Which particle marks the language in 日本語＿分かります?","answer":"が"},
+    {"prompt":"How do you say “I came from Chile”?","answer":"チリから[[来ました|きました]]。"},
+    {"prompt":"Which particle marks the language in [[日本語|にほんご]]＿[[分かります|わかります]]?","answer":"が"},
     {"prompt":"What expression pairs with a negative to mean “not very”?","answer":"あまり"}
   ],
   "related": {"particles":["wa","ga","ni","kara"],"verbs":["motion"],"adjectives":["i-adjectives"]}

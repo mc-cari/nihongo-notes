@@ -1,0 +1,19 @@
+---
+interface Props {
+  text: string;
+  class?: string;
+}
+
+const { text, class: className } = Astro.props;
+const annotationPattern = /^\[\[([^|\]]+)\|([^\]]+)\]\]$/;
+const parts = text.split(/(\[\[[^|\]]+\|[^\]]+\]\])/g).filter(Boolean);
+---
+
+<span class={className}>
+  {parts.map((part) => {
+    const annotation = part.match(annotationPattern);
+    return annotation ? (
+      <ruby lang="ja">{annotation[1]}<rt>{annotation[2]}</rt></ruby>
+    ) : part;
+  })}
+</span>

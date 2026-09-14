@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageLead from '../../components/PageLead.astro';
+import AnnotatedText from '../../components/AnnotatedText.astro';
 
 const classes = (await getCollection('classes')).sort((a, b) => a.data.order - b.data.order);
 ---
@@ -18,7 +19,7 @@ const classes = (await getCollection('classes')).sort((a, b) => a.data.order - b
             <small>{entry.data.eyebrow}</small>
             <strong>{entry.data.title}</strong>
             <span lang="ja">{entry.data.japaneseTitle}</span>
-            <p>{entry.data.summary}</p>
+            <p><AnnotatedText text={entry.data.summary} /></p>
           </span>
           <span class="class-index__arrow" aria-hidden="true">↗</span>
         </a>

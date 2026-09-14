@@ -6,7 +6,7 @@
   "eyebrow": "Conversation pattern",
   "summary": "Find things, make polite requests, accept or decline service, and say how you will pay.",
   "sourceFiles": ["コンビニの会話　初級　at a convenience store.pdf"],
-  "takeaways": ["ください asks for a thing or action; お願いします makes a flexible polite request.", "で marks the payment method just like another means.", "は can contrast what you need with what you do not."],
+  "takeaways": ["ください asks for a thing or action; [[お願いします|おねがいします]] makes a flexible polite request.", "で marks the payment method just like another means.", "は can contrast what you need with what you do not."],
   "grammar": [
     {
       "id": "polite-request",
@@ -31,7 +31,7 @@
     {
       "id": "payment-means",
       "title": "Pay by a method",
-      "pattern": "Method で払います",
+      "pattern": "Method で[[払います|はらいます]]",
       "summary": "The means particle で covers cards, cash, transit cards, tools, vehicles, and languages.",
       "examples": [
         {"tokens": [{"text":"カード","gloss":"card"},{"text":"で","gloss":"means marker"},{"text":"払います","reading":"はらいます","gloss":"pay"},{"text":"。","plain":true}],"english":"I will pay by card."},
@@ -40,9 +40,9 @@
     }
   ],
   "recall": [
-    {"prompt":"How do you request a noun politely?","answer":"Noun をください or Noun をお願いします"},
+    {"prompt":"How do you request a noun politely?","answer":"Noun をください or Noun を[[お願いします|おねがいします]]"},
     {"prompt":"Which particle marks how you pay?","answer":"で"},
-    {"prompt":"What does そのままで大丈夫です mean in context?","answer":"It is fine as it is; no change or extra service is needed."}
+    {"prompt":"What does そのままで[[大丈夫|だいじょうぶ]]です mean in context?","answer":"It is fine as it is; no change or extra service is needed."}
   ],
   "related": {"particles":["wa","ga","o","de","no"],"verbs":["transitive"],"adjectives":[]}
 }

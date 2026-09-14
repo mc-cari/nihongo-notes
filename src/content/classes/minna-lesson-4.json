@@ -18,7 +18,7 @@
         {"tokens": [{"text":"毎朝","reading":"まいあさ","gloss":"every morning"},{"text":"七時半","reading":"しちじはん","gloss":"seven thirty"},{"text":"に","gloss":"time-point marker"},{"text":"起きます","reading":"おきます","gloss":"wake up"},{"text":"。","plain":true}],"english":"I wake up at seven thirty every morning."},
         {"tokens": [{"text":"日曜日","reading":"にちようび","gloss":"Sunday"},{"text":"に","gloss":"time marker; optional here"},{"text":"休みます","reading":"やすみます","gloss":"rest / take a day off"},{"text":"。","plain":true}],"english":"I rest on Sunday.","note":"Weekdays may use に or omit it."}
       ],
-      "caution": "今日, 明日, 昨日, 毎日, 今朝 and similar relative times normally omit に."
+      "caution": "[[今日|きょう]], [[明日|あした]], [[昨日|きのう]], [[毎日|まいにち]], [[今朝|けさ]] and similar relative times normally omit に."
     },
     {
       "id": "range",
@@ -42,9 +42,9 @@
     }
   ],
   "recall": [
-    {"prompt":"Does 毎朝 take に?","answer":"Normally no. Relative/repeating time words do not need に."},
+    {"prompt":"Does [[毎朝|まいあさ]] take に?","answer":"Normally no. Relative/repeating time words do not need に."},
     {"prompt":"What marks the end of a time range?","answer":"まで"},
-    {"prompt":"Make 働きます past-negative.","answer":"働きませんでした"}
+    {"prompt":"Make [[働きます|はたらきます]] past-negative.","answer":"[[働きませんでした|はたらきませんでした]]"}
   ],
   "related": {"particles":["wa","ni","kara","made"],"verbs":["masu-time"],"adjectives":[]}
 }

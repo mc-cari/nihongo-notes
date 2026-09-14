@@ -18,7 +18,7 @@
         {"tokens": [{"text":"毎朝","reading":"まいあさ","gloss":"every morning"},{"text":"コーヒー","gloss":"coffee"},{"text":"を","gloss":"object marker"},{"text":"飲みます","reading":"のみます","gloss":"drink"},{"text":"。","plain":true}],"english":"I drink coffee every morning."},
         {"tokens": [{"text":"週末","reading":"しゅうまつ","gloss":"weekend"},{"text":"日本語","reading":"にほんご","gloss":"Japanese language"},{"text":"を","gloss":"object marker"},{"text":"勉強しました","reading":"べんきょうしました","gloss":"studied"},{"text":"。","plain":true}],"english":"I studied Japanese on the weekend."}
       ],
-      "caution": "何も means “nothing” only with a negative predicate: 何も飲みません, not 何も飲みます."
+      "caution": "[[何も|なにも]] means “nothing” only with a negative predicate: [[何も|なにも]][[飲みません|のみません]], not [[何も|なにも]][[飲みます|のみます]]."
     },
     {
       "id": "action-place",
@@ -45,8 +45,8 @@
   ],
   "recall": [
     {"prompt":"Which particle marks what you eat, drink, read, or buy?","answer":"を"},
-    {"prompt":"How do you ask “Where did you eat lunch?”","answer":"どこで昼ご飯を食べましたか。"},
-    {"prompt":"What is the difference between 見ませんか and 見ましょう?","answer":"見ませんか invites; 見ましょう proposes or accepts the plan."}
+    {"prompt":"How do you ask “Where did you eat lunch?”","answer":"どこで[[昼ご飯|ひるごはん]]を[[食べました|たべました]]か。"},
+    {"prompt":"What is the difference between [[見ませんか|みませんか]] and [[見ましょう|みましょう]]?","answer":"[[見ませんか|みませんか]] invites; [[見ましょう|みましょう]] proposes or accepts the plan."}
   ],
   "related": {"particles":["o","de","mo"],"verbs":["masu-time","transitive","invitation"],"adjectives":[]}
 }

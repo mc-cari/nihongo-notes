@@ -21,7 +21,7 @@
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: clip; }
 
 body {
   margin: 0;
@@ -226,7 +226,7 @@ h1, h2, h3 {
   left: 50%;
   bottom: calc(100% + .65rem);
   z-index: 4;
-  display: block;
+  display: none;
   width: max-content;
   min-width: 9.5rem;
   max-width: min(16rem, calc(100vw - 2rem));
@@ -261,6 +261,7 @@ h1, h2, h3 {
 .jp-token:hover .jp-token__popup,
 .jp-token:focus-visible .jp-token__popup,
 .jp-token.is-current .jp-token__popup {
+  display: block;
   opacity: 1;
   visibility: visible;
   transform: translate(calc(-50% + var(--popup-offset, 0px)), 0);

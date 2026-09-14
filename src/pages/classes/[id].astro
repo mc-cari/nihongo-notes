@@ -2,6 +2,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import GrammarCard from '../../components/GrammarCard.astro';
+import AnnotatedText from '../../components/AnnotatedText.astro';
 
 export async function getStaticPaths() {
   const entries = await getCollection('classes');
@@ -24,10 +25,10 @@ const { data } = entry;
       <span class="class-lead__jp" lang="ja">{data.japaneseTitle}</span>
     </div>
     <div class="class-lead__summary">
-      <p>{data.summary}</p>
+      <p><AnnotatedText text={data.summary} /></p>
       <div class="takeaways">
         <span>Keep these three</span>
-        <ul>{data.takeaways.map((item) => <li>{item}</li>)}</ul>
+        <ul>{data.takeaways.map((item) => <li><AnnotatedText text={item} /></li>)}</ul>
       </div>
     </div>
   </header>
@@ -44,8 +45,8 @@ const { data } = entry;
     <div class="recall-list">
       {data.recall.map((item, index) => (
         <details>
-          <summary><span>{String(index + 1).padStart(2, '0')}</span>{item.prompt}</summary>
-          <p>{item.answer}</p>
+          <summary><span>{String(index + 1).padStart(2, '0')}</span><AnnotatedText text={item.prompt} /></summary>
+          <p><AnnotatedText text={item.answer} /></p>
         </details>
       ))}
     </div>
