@@ -1,5 +1,6 @@
 ---
 import JapaneseText from './JapaneseText.astro';
+import AnnotatedText from './AnnotatedText.astro';
 
 interface Props {
   point: {
@@ -25,10 +26,10 @@ const { point, index } = Astro.props;
   <div class="grammar-card__number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</div>
   <div class="grammar-card__body">
     <header>
-      <p class="grammar-card__pattern">{point.pattern}</p>
-      <h2>{point.title}</h2>
-      <p>{point.summary}</p>
-      {point.detail && <p class="grammar-card__detail">{point.detail}</p>}
+      <p class="grammar-card__pattern"><AnnotatedText text={point.pattern} /></p>
+      <h2><AnnotatedText text={point.title} /></h2>
+      <p><AnnotatedText text={point.summary} /></p>
+      {point.detail && <p class="grammar-card__detail"><AnnotatedText text={point.detail} /></p>}
     </header>
     <div class="examples">
       {point.examples.map((example) => (
@@ -36,15 +37,15 @@ const { point, index } = Astro.props;
           <JapaneseText tokens={example.tokens} />
           <figcaption>
             <span>{example.english}</span>
-            {example.note && <small>{example.note}</small>}
+            {example.note && <small><AnnotatedText text={example.note} /></small>}
           </figcaption>
         </figure>
       ))}
     </div>
     {point.caution && (
       <aside class="margin-warning">
-        <span>気をつけて</span>
-        <p>{point.caution}</p>
+        <span><AnnotatedText text="[[気|き]]をつけて" /></span>
+        <p><AnnotatedText text={point.caution} /></p>
       </aside>
     )}
   </div>

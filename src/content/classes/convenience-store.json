@@ -6,7 +6,7 @@
   "eyebrow": "Conversation pattern",
   "summary": "Find things, make polite requests, accept or decline service, and say how you will pay.",
   "sourceFiles": ["コンビニの会話　初級　at a convenience store.pdf"],
-  "takeaways": ["ください asks for a thing or action; お願いします makes a flexible polite request.", "で marks the payment method just like another means.", "は can contrast what you need with what you do not."],
+  "takeaways": ["ください asks for a thing or action; [[お願いします|おねがいします]] makes a flexible polite request.", "で marks the payment method just like another means.", "は can contrast what you need with what you do not."],
   "grammar": [
     {
       "id": "polite-request",
@@ -29,9 +29,20 @@
       "caution": "This clause-joining が is different from the subject-marker が. Context reveals the job."
     },
     {
+      "id": "side-versus-neighbor",
+      "title": "[[横|よこ]] versus [[隣|となり]]",
+      "pattern": "Noun の[[横|よこ]] / Noun の[[隣|となり]]",
+      "summary": "Both [[横|よこ]] and [[隣|となり]] can mean “next to.” Use [[横|よこ]] for a simple physical position beside a reference point, regardless of what the objects are. Use [[隣|となり]] for the immediate neighboring peer, especially when the items belong to the same category or form a sequence.",
+      "examples": [
+        {"tokens": [{"text":"温かい","reading":"あたたかい","gloss":"hot / warm"},{"text":"お茶","reading":"おちゃ","gloss":"tea"},{"text":"は","gloss":"topic marker"},{"text":"レジ","gloss":"register"},{"text":"の","gloss":"of"},{"text":"横","reading":"よこ","gloss":"side / beside"},{"text":"です","gloss":"is"},{"text":"ね","gloss":"right?"},{"text":"。","plain":true}],"english":"The hot tea is next to the register, right?"},
+        {"tokens": [{"text":"冷たい","reading":"つめたい","gloss":"cold"},{"text":"お茶","reading":"おちゃ","gloss":"tea"},{"text":"は","gloss":"topic marker"},{"text":"お弁当","reading":"おべんとう","gloss":"boxed meal"},{"text":"の","gloss":"of"},{"text":"隣","reading":"となり","gloss":"next to / neighboring"},{"text":"です","gloss":"is"},{"text":"ね","gloss":"right?"},{"text":"。","plain":true}],"english":"The cold tea is next to the boxed meals, right?"}
+      ],
+      "caution": "This is a rule of thumb, not an absolute restriction: [[隣|となり]] identifies the neighbor, while [[横|よこ]] describes the side or location. Tea beside a boxed meal can be お弁当の隣 because both are products in the display."
+    },
+    {
       "id": "payment-means",
       "title": "Pay by a method",
-      "pattern": "Method で払います",
+      "pattern": "Method で[[払います|はらいます]]",
       "summary": "The means particle で covers cards, cash, transit cards, tools, vehicles, and languages.",
       "examples": [
         {"tokens": [{"text":"カード","gloss":"card"},{"text":"で","gloss":"means marker"},{"text":"払います","reading":"はらいます","gloss":"pay"},{"text":"。","plain":true}],"english":"I will pay by card."},
@@ -40,9 +51,9 @@
     }
   ],
   "recall": [
-    {"prompt":"How do you request a noun politely?","answer":"Noun をください or Noun をお願いします"},
+    {"prompt":"How do you request a noun politely?","answer":"Noun をください or Noun を[[お願いします|おねがいします]]"},
     {"prompt":"Which particle marks how you pay?","answer":"で"},
-    {"prompt":"What does そのままで大丈夫です mean in context?","answer":"It is fine as it is; no change or extra service is needed."}
+    {"prompt":"What does そのままで[[大丈夫|だいじょうぶ]]です mean in context?","answer":"It is fine as it is; no change or extra service is needed."}
   ],
   "related": {"particles":["wa","ga","o","de","no"],"verbs":["transitive"],"adjectives":[]}
 }

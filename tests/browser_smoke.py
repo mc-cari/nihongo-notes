@@ -31,6 +31,8 @@ with sync_playwright() as playwright:
     popup.wait_for(state="visible")
     assert "grammar" in popup.inner_text()
     assert "文法" not in popup.inner_text()
+    first_token.focus()
+    assert "is-current" in (first_token.get_attribute("class") or "")
     desktop.screenshot(path=str(SCREENSHOT_DIR / "home-desktop.png"), full_page=True)
 
     desktop.goto(f"{BASE_URL}/particles/", wait_until="networkidle")
@@ -46,13 +48,43 @@ with sync_playwright() as playwright:
     assert desktop.locator(".skip-link").evaluate("el => el.getBoundingClientRect().right < 0")
     desktop.screenshot(path=str(SCREENSHOT_DIR / "lesson-desktop.png"), full_page=True)
 
+    desktop.goto(f"{BASE_URL}/classes/izakaya-questions/", wait_until="networkidle")
+    question_summary = desktop.locator("#question-slot header > p:not(.grammar-card__pattern)")
+    assert question_summary.locator("ruby").count() == 1
+    assert question_summary.locator("ruby").evaluate("el => [el.firstChild.textContent, el.querySelector('rt').textContent]") == ["何時", "なんじ"]
+    origin_example = desktop.locator("#question-slot")
+    assert origin_example.locator("[data-surface='お国']").count() == 1
+    assert origin_example.locator("[data-surface='台湾']").count() == 1
+    quantity_offer = desktop.locator("#quantity-offer")
+    assert quantity_offer.locator("[data-surface='ビール']").count() == 1
+    assert quantity_offer.locator("[data-surface='いくつ']").count() == 1
+    assert quantity_offer.locator("[data-surface='お持ちしましょうか']").count() == 1
+    quantity_token = quantity_offer.locator(".jp-token").nth(3)
+    assert quantity_token.locator("ruby").evaluate("el => [el.firstChild.textContent, el.querySelector('rt').textContent]") == ["お持ちしましょうか", "おもちしましょうか"]
+    quantity_token.hover()
+    quantity_token.locator(".jp-token__popup").wait_for(state="visible")
+    assert "shall I bring?" in quantity_token.locator(".jp-token__popup").inner_text()
+    choice_examples = desktop.locator("#two-choice")
+    assert choice_examples.locator("[data-surface='テーブル']").count() == 1
+    assert choice_examples.locator("[data-surface='席']").count() == 1
+    assert choice_examples.locator("[data-surface='お座敷']").count() == 2
+    desktop.screenshot(path=str(SCREENSHOT_DIR / "izakaya-desktop.png"), full_page=True)
+
     mobile = browser.new_page(viewport={"width": 390, "height": 844}, device_scale_factor=1)
     mobile.goto(BASE_URL, wait_until="networkidle")
     mobile_token = mobile.locator(".jp-token").first
     mobile_token.click()
     mobile_token.locator(".jp-token__popup").wait_for(state="visible")
-    assert mobile.locator("body").evaluate("el => el.scrollWidth <= window.innerWidth")
+    assert mobile.locator("html").evaluate("el => el.scrollWidth <= window.innerWidth")
     mobile.screenshot(path=str(SCREENSHOT_DIR / "home-mobile.png"), full_page=True)
+
+    mobile.goto(f"{BASE_URL}/classes/izakaya-questions/", wait_until="networkidle")
+    assert mobile.locator("#question-slot header").locator("ruby").count() == 1
+    mobile_quantity_token = mobile.locator("#quantity-offer .jp-token").nth(3)
+    mobile_quantity_token.click()
+    mobile_quantity_token.locator(".jp-token__popup").wait_for(state="visible")
+    assert mobile.locator("html").evaluate("el => el.scrollWidth <= window.innerWidth")
+    mobile.screenshot(path=str(SCREENSHOT_DIR / "izakaya-mobile.png"), full_page=True)
 
     assert not console_errors, f"Console errors: {console_errors}"
     browser.close()

@@ -2,6 +2,7 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import GrammarCard from '../../components/GrammarCard.astro';
+import AnnotatedText from '../../components/AnnotatedText.astro';
 
 export async function getStaticPaths() {
   const entries = await getCollection('classes');
@@ -11,9 +12,10 @@ export async function getStaticPaths() {
 interface Props { entry: CollectionEntry<'classes'>; }
 const { entry } = Astro.props;
 const { data } = entry;
+const plainSummary = data.summary.replace(/\[\[([^|\]]+)\|[^\]]+\]\]/g, '$1');
 ---
 
-<BaseLayout title={`${data.title} — Nihongo Notes`} description={data.summary}>
+<BaseLayout title={`${data.title} — Nihongo Notes`} description={plainSummary}>
   <header class="class-lead">
     <div class="class-lead__top">
       <div>
@@ -24,10 +26,10 @@ const { data } = entry;
       <span class="class-lead__jp" lang="ja">{data.japaneseTitle}</span>
     </div>
     <div class="class-lead__summary">
-      <p>{data.summary}</p>
+      <p><AnnotatedText text={data.summary} /></p>
       <div class="takeaways">
         <span>Keep these three</span>
-        <ul>{data.takeaways.map((item) => <li>{item}</li>)}</ul>
+        <ul>{data.takeaways.map((item) => <li><AnnotatedText text={item} /></li>)}</ul>
       </div>
     </div>
   </header>
@@ -44,8 +46,8 @@ const { data } = entry;
     <div class="recall-list">
       {data.recall.map((item, index) => (
         <details>
-          <summary><span>{String(index + 1).padStart(2, '0')}</span>{item.prompt}</summary>
-          <p>{item.answer}</p>
+          <summary><span class="recall-number">{String(index + 1).padStart(2, '0')}</span><AnnotatedText text={item.prompt} /></summary>
+          <p><AnnotatedText text={item.answer} /></p>
         </details>
       ))}
     </div>
@@ -77,7 +79,7 @@ const { data } = entry;
   .recall-list details { border-bottom: 1px solid var(--line); }
   .recall-list summary { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; padding: 1.2rem .5rem; cursor: pointer; list-style: none; }
   .recall-list summary::-webkit-details-marker { display: none; }
-  .recall-list summary span { color: var(--cinnabar); font-family: var(--utility); font-size: .68rem; }
+  .recall-list summary > .recall-number { color: var(--cinnabar); font-family: var(--utility); font-size: .68rem; }
   .recall-list details p { margin: 0; padding: 0 1rem 1.4rem 4.5rem; color: var(--indigo); }
   .related-nav { display: flex; align-items: center; gap: 1.4rem; padding: 2rem 0 5rem; border-top: 1px solid var(--line); }
   .related-nav span { margin-right: auto; color: var(--ink-faint); font-family: var(--utility); font-size: .62rem; text-transform: uppercase; }

@@ -5,14 +5,14 @@
   "kind": "lesson",
   "bookLesson": 5,
   "eyebrow": "Minna no Nihongo · Lesson 5",
-  "summary": "Build a movement sentence by attaching destination, transport, companion, and time to 行きます・来ます・帰ります.",
+  "summary": "Build a movement sentence by attaching destination, transport, companion, and time to [[行きます|いきます]]・[[来ます|きます]]・[[帰ります|かえります]].",
   "sourceFiles": ["みんなの日本語　第5課.pdf"],
   "takeaways": ["に or へ points toward the destination.", "で marks transport; と marks a companion.", "Question word + も + negative gives “nowhere/no one/nothing.”"],
   "grammar": [
     {
       "id": "movement-frame",
       "title": "Choose the destination",
-      "pattern": "Place に／へ 行きます",
+      "pattern": "Place に／へ [[行きます|いきます]]",
       "summary": "に treats the place as a target. へ emphasizes direction toward it. At this level, both usually translate as “to.”",
       "examples": [
         {"tokens": [{"text":"週末","reading":"しゅうまつ","gloss":"weekend"},{"text":"箱根","reading":"はこね","gloss":"Hakone"},{"text":"に","gloss":"destination marker"},{"text":"行きます","reading":"いきます","gloss":"go"},{"text":"。","plain":true}],"english":"I will go to Hakone on the weekend."},
@@ -28,7 +28,7 @@
         {"tokens": [{"text":"新幹線","reading":"しんかんせん","gloss":"bullet train"},{"text":"で","gloss":"means marker"},{"text":"大阪","reading":"おおさか","gloss":"Osaka"},{"text":"に","gloss":"destination marker"},{"text":"行きます","reading":"いきます","gloss":"go"},{"text":"。","plain":true}],"english":"I go to Osaka by bullet train."},
         {"tokens": [{"text":"家族","reading":"かぞく","gloss":"family"},{"text":"と","gloss":"with"},{"text":"京都","reading":"きょうと","gloss":"Kyoto"},{"text":"へ","gloss":"toward"},{"text":"行きました","reading":"いきました","gloss":"went"},{"text":"。","plain":true}],"english":"I went to Kyoto with my family."}
       ],
-      "caution": "Walking takes 歩いて, not a transport noun + で. Learn it as a fixed answer for now."
+      "caution": "Walking takes [[歩いて|あるいて]], not a transport noun + で. Learn it as a fixed answer for now."
     },
     {
       "id": "question-mo-negative",
@@ -45,7 +45,7 @@
   "recall": [
     {"prompt":"Which particle marks the vehicle used?","answer":"で"},
     {"prompt":"What is the nuance difference between destination に and へ?","answer":"に targets the endpoint; へ emphasizes direction toward it."},
-    {"prompt":"How do you say “I did not go anywhere”?","answer":"どこにも行きませんでした。"}
+    {"prompt":"How do you say “I did not go anywhere”?","answer":"どこにも[[行きませんでした|いきませんでした]]。"}
   ],
   "related": {"particles":["ni","e","de","to","mo"],"verbs":["masu-time","motion"],"adjectives":[]}
 }

@@ -44,9 +44,9 @@
     }
   ],
   "recall": [
-    {"prompt":"How do you ask “What is ‘thank you’ in Japanese?”","answer":"「Thank you」は日本語で何ですか。"},
+    {"prompt":"How do you ask “What is ‘thank you’ in Japanese?”","answer":"「Thank you」は[[日本語|にほんご]]で[[何|なん]]ですか。"},
     {"prompt":"Which particle marks the recipient with あげます?","answer":"に"},
-    {"prompt":"How do you answer もう食べましたか if you have not eaten yet?","answer":"いいえ、まだです。"}
+    {"prompt":"How do you answer もう[[食べましたか|たべましたか]] if you have not eaten yet?","answer":"いいえ、まだです。"}
   ],
   "related": {"particles":["o","ni","de","kara"],"verbs":["masu-time","transitive","giving-receiving","already"],"adjectives":[]}
 }

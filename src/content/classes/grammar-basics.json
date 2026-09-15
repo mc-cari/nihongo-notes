@@ -44,9 +44,9 @@
     {
       "id": "noun-ga-hoshii",
       "title": "Say what you want",
-      "pattern": "（私は）Noun が ほしいです",
+      "pattern": "（[[私は|わたしは]]）Noun が ほしいです",
       "summary": "Use が to mark the thing you want. The person who wants it can be framed with は and is often omitted when obvious.",
-      "detail": "Ask 何がほしいですか. Because ほしい is an い-adjective, its negative form is ほしくないです.",
+      "detail": "Ask [[何|なに]]がほしいですか. Because ほしい is an い-adjective, its negative form is ほしくないです.",
       "examples": [
         {"tokens": [{"text":"新しい","reading":"あたらしい","gloss":"new"},{"text":"スマホ","gloss":"smartphone"},{"text":"が","gloss":"wanted-item marker"},{"text":"ほしいです","gloss":"want"},{"text":"。","plain":true}],"english":"I want a new smartphone."},
         {"tokens": [{"text":"何も","reading":"なにも","gloss":"nothing + negative"},{"text":"ほしくないです","gloss":"do not want"},{"text":"。","plain":true}],"english":"I do not want anything."}
@@ -57,7 +57,7 @@
   "recall": [
     {"prompt":"How do you make です past-negative?","answer":"じゃありませんでした"},
     {"prompt":"Which particles mark a direct object and the thing you want?","answer":"を marks a direct object; が marks the wanted thing."},
-    {"prompt":"How do you say “I do not want anything”?","answer":"何もほしくないです。"}
+    {"prompt":"How do you say “I do not want anything”?","answer":"[[何も|なにも]]ほしくないです。"}
   ],
   "related": {"particles":["wa","mo","ga","o","ni","de"],"verbs":["masu-time","transitive","invitation"],"adjectives":["i-adjectives","na-adjectives","preference"]}
 }

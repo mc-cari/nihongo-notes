@@ -68,13 +68,14 @@ export const particles: Particle[] = [
     ], classes: ['minna-lesson-4', 'minna-lesson-5', 'minna-lesson-7', 'self-introduction'],
   },
   {
-    id: 'de', kana: 'で', spoken: 'de', role: 'scene / means',
-    core: 'Marks the setting or means through which an action happens.',
-    uses: ['Place where an action occurs.', 'Transport, tool, language, or method used.', 'Material or cause in later lessons.'],
-    caution: 'Use に for the destination or existence point; use で for an action happening there.',
+    id: 'de', kana: 'で', spoken: 'de', role: 'scene / means / state',
+    core: 'Marks the setting, means, or condition in which something happens or remains.',
+    uses: ['Place where an action occurs.', 'Transport, tool, language, or method used.', 'A state or condition that remains in effect, as in そのままで.', 'Material or cause in later lessons.'],
+    caution: 'Use に for a destination or place of existence. Use で for where an action unfolds, how it is done, or the condition being maintained.',
     examples: [
       { tokens: [w('家', 'いえ', 'home'), w('で', undefined, 'place of action'), w('食べます', 'たべます', 'eat'), p('。')], english: 'I eat at home.' },
       { tokens: [w('電車', 'でんしゃ', 'train'), w('で', undefined, 'means marker'), w('行きます', 'いきます', 'go'), p('。')], english: 'I go by train.' },
+      { tokens: [w('そのまま', undefined, 'as it is'), w('で', undefined, 'state marker'), w('大丈夫', 'だいじょうぶ', 'all right'), w('です', undefined, 'is / polite'), p('。')], english: 'It is okay as it is.', note: 'Here で marks the condition in which something remains.' },
     ], classes: ['grammar-basics', 'minna-lesson-5', 'minna-lesson-6', 'minna-lesson-7', 'convenience-store'],
   },
   {

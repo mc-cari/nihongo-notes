@@ -12,11 +12,24 @@
       "id": "question-slot",
       "title": "Leave the unknown in place",
       "pattern": "Noun は Question word ですか",
-      "summary": "Japanese does not move the question word to the front. Put いつ, どこ, だれ, or 何時 where the missing information belongs.",
+      "summary": "Japanese does not move the question word to the front. Put いつ, どこ, だれ, or [[何時|なんじ]] where the missing information belongs.",
       "examples": [
         {"tokens": [{"text":"予約","reading":"よやく","gloss":"reservation"},{"text":"は","gloss":"topic marker"},{"text":"いつ","gloss":"when"},{"text":"です","gloss":"is"},{"text":"か","gloss":"question marker"},{"text":"。","plain":true}],"english":"When is the reservation?"},
-        {"tokens": [{"text":"居酒屋","reading":"いざかや","gloss":"izakaya"},{"text":"は","gloss":"topic marker"},{"text":"どこ","gloss":"where"},{"text":"です","gloss":"is"},{"text":"か","gloss":"question marker"},{"text":"。","plain":true}],"english":"Where is the izakaya?"}
+        {"tokens": [{"text":"居酒屋","reading":"いざかや","gloss":"izakaya"},{"text":"は","gloss":"topic marker"},{"text":"どこ","gloss":"where"},{"text":"です","gloss":"is"},{"text":"か","gloss":"question marker"},{"text":"。","plain":true}],"english":"Where is the izakaya?"},
+        {"tokens": [{"text":"お国","reading":"おくに","gloss":"your country"},{"text":"は","gloss":"topic marker"},{"text":"どちら","gloss":"where (polite)"},{"text":"です","gloss":"are"},{"text":"か","gloss":"question marker"},{"text":"。","plain":true}],"english":"Where are you from?","note":"Here, どちら politely asks about origin; it is not a two-choice question."},
+        {"tokens": [{"text":"台湾","reading":"たいわん","gloss":"Taiwan"},{"text":"です","gloss":"am / are"},{"text":"。","plain":true}],"english":"I’m from Taiwan."}
       ]
+    },
+    {
+      "id": "how-is",
+      "title": "Ask how something is",
+      "pattern": "Noun は どうですか",
+      "summary": "どう is an interrogative adverb, not a particle. Use どうですか to ask about a thing’s condition or quality, or to ask what someone thinks of it.",
+      "examples": [
+        {"tokens": [{"text":"この","gloss":"this"},{"text":"料理","reading":"りょうり","gloss":"dish"},{"text":"は","gloss":"topic marker"},{"text":"どう","gloss":"how / what do you think?"},{"text":"です","gloss":"is"},{"text":"か","gloss":"question marker"},{"text":"。","plain":true}],"english":"How is this dish? / What do you think of this dish?"},
+        {"tokens": [{"text":"これ","gloss":"this one"},{"text":"も","gloss":"also"},{"text":"どう","gloss":"how about"},{"text":"です","gloss":"is"},{"text":"か","gloss":"question marker"},{"text":"。","plain":true}],"english":"How about this one too?"}
+      ],
+      "caution": "どう asks for an evaluation or condition. It is different from どの + noun (which one) and どちら (which of two)."
     },
     {
       "id": "two-choice",
@@ -25,18 +38,30 @@
       "summary": "Use どちら for a polite choice between two things. The chosen thing is commonly marked by が with preference adjectives.",
       "examples": [
         {"tokens": [{"text":"寿司","reading":"すし","gloss":"sushi"},{"text":"と","gloss":"and"},{"text":"天ぷら","reading":"てんぷら","gloss":"tempura"},{"text":"と","gloss":"and"},{"text":"どちら","gloss":"which of two"},{"text":"が","gloss":"subject marker"},{"text":"好き","reading":"すき","gloss":"liked"},{"text":"です","gloss":"is"},{"text":"か","gloss":"question marker"},{"text":"。","plain":true}],"english":"Which do you like, sushi or tempura?"},
-        {"tokens": [{"text":"どちら","gloss":"which of two"},{"text":"も","gloss":"both"},{"text":"好き","reading":"すき","gloss":"liked"},{"text":"です","gloss":"are"},{"text":"。","plain":true}],"english":"I like both."}
+        {"tokens": [{"text":"どちら","gloss":"which of two"},{"text":"も","gloss":"both"},{"text":"好き","reading":"すき","gloss":"liked"},{"text":"です","gloss":"are"},{"text":"。","plain":true}],"english":"I like both."},
+        {"tokens": [{"text":"テーブル","gloss":"table"},{"text":"席","reading":"せき","gloss":"seating"},{"text":"と","gloss":"and"},{"text":"お座敷","reading":"おざしき","gloss":"tatami seating"},{"text":"と","gloss":"and"},{"text":"どちら","gloss":"which of two"},{"text":"が","gloss":"subject marker"},{"text":"よろしいですか","gloss":"would you prefer?"},{"text":"。","plain":true}],"english":"Which would you prefer, table seating or tatami seating?"},
+        {"tokens": [{"text":"お座敷","reading":"おざしき","gloss":"tatami seating"},{"text":"が","gloss":"subject marker"},{"text":"いいです","gloss":"is good / I prefer it"},{"text":"。","plain":true}],"english":"Tatami seating would be good."}
       ]
     },
     {
       "id": "which-noun",
-      "title": "Choose within a noun category",
+      "title": "Choose one item from a category",
       "pattern": "どの + Noun",
-      "summary": "どの cannot stand alone; it must directly modify a noun such as size, color, or seat.",
+      "summary": "Use どの before a noun when you are choosing one item from a known category. It means “which + noun,” as in どの色 (which color) or どの席 (which seat).",
       "examples": [
-        {"tokens": [{"text":"どの","gloss":"which"},{"text":"色","reading":"いろ","gloss":"color"},{"text":"が","gloss":"subject marker"},{"text":"いい","gloss":"good / preferred"},{"text":"です","gloss":"is"},{"text":"か","gloss":"question marker"},{"text":"。","plain":true}],"english":"Which color would you like?"}
+        {"tokens": [{"text":"どの","gloss":"which"},{"text":"色","reading":"いろ","gloss":"color"},{"text":"が","gloss":"subject marker"},{"text":"いい","gloss":"good / preferred"},{"text":"です","gloss":"is"},{"text":"か","gloss":"question marker"},{"text":"。","plain":true}],"english":"Which color would you like?"},
+        {"tokens": [{"text":"どの","gloss":"which"},{"text":"席","reading":"せき","gloss":"seat"},{"text":"が","gloss":"subject marker"},{"text":"いい","gloss":"good / preferred"},{"text":"です","gloss":"is"},{"text":"か","gloss":"question marker"},{"text":"。","plain":true}],"english":"Which seat would you like?"}
       ],
-      "caution": "どれ stands alone; どの always comes before a noun."
+      "caution": "どの cannot stand alone: use どれ for “which one?” Compare どの色がいいですか (Which color?) with どれがいいですか (Which one?)."
+    },
+    {
+      "id": "quantity-offer",
+      "title": "Offer a quantity",
+      "pattern": "Noun を いくつ お持ちしましょうか",
+      "summary": "Use いくつ to ask for an unspecified number of countable items. In service language, お持ちしましょうか politely offers to bring them.",
+      "examples": [
+        {"tokens": [{"text":"ビール","gloss":"beer"},{"text":"を","gloss":"object marker"},{"text":"いくつ","gloss":"how many"},{"text":"お持ちしましょうか","reading":"おもちしましょうか","gloss":"shall I bring?"},{"text":"。","plain":true}],"english":"How many beers shall I bring you?","note":"A server can use this to confirm the quantity before bringing the order."}
+      ]
     }
   ],
   "recall": [
@@ -44,5 +69,5 @@
     {"prompt":"Can どの stand by itself?","answer":"No. It must modify a noun."},
     {"prompt":"Where does a Japanese question word go?","answer":"In the same sentence position as the missing answer."}
   ],
-  "related": {"particles":["wa","ga","to","mo","no"],"verbs":[],"adjectives":["preference"]}
+  "related": {"particles":["wa","ga","o","to","mo","no"],"verbs":["invitation"],"adjectives":["preference"]}
 }
