@@ -27,7 +27,7 @@ const { point, index } = Astro.props;
   <div class="grammar-card__body">
     <header>
       <p class="grammar-card__pattern"><AnnotatedText text={point.pattern} /></p>
-      <h2>{point.title}</h2>
+      <h2><AnnotatedText text={point.title} /></h2>
       <p><AnnotatedText text={point.summary} /></p>
       {point.detail && <p class="grammar-card__detail"><AnnotatedText text={point.detail} /></p>}
     </header>
