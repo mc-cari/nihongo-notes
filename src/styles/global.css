@@ -313,6 +313,11 @@ rt {
   font-size: clamp(2rem, 4vw, 3.3rem);
 }
 
+.grammar-card h2 rt {
+  line-height: 1;
+  padding-block-end: .18em;
+}
+
 .grammar-card header > p:not(.grammar-card__pattern) {
   max-width: 48rem;
   color: var(--ink-dim);
