@@ -9,9 +9,9 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "deno task validate:content && astro check && astro build",
+    "build": "npm run validate:content && astro check && astro build",
     "check": "astro check",
-    "validate:content": "deno run --allow-read=src/content/classes,src/data/reference.ts scripts/validate-content.mjs",
+    "validate:content": "node scripts/validate-content.mjs",
     "security:check": "deno outdated --frozen --compatible",
     "preview": "astro preview"
   },
