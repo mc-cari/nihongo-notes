@@ -29,6 +29,17 @@
       "caution": "This clause-joining が is different from the subject-marker が. Context reveals the job."
     },
     {
+      "id": "side-versus-neighbor",
+      "title": "横 versus 隣",
+      "pattern": "Noun の横 / Noun の隣",
+      "summary": "Both 横 and 隣 can mean “next to.” 横 focuses on the side or position beside a reference point; 隣 focuses on the neighboring item, person, or place.",
+      "examples": [
+        {"tokens": [{"text":"温かい","reading":"あたたかい","gloss":"hot / warm"},{"text":"お茶","reading":"おちゃ","gloss":"tea"},{"text":"は","gloss":"topic marker"},{"text":"レジ","gloss":"register"},{"text":"の","gloss":"of"},{"text":"横","reading":"よこ","gloss":"side / beside"},{"text":"です","gloss":"is"},{"text":"ね","gloss":"right?"},{"text":"。","plain":true}],"english":"The hot tea is next to the register, right?"},
+        {"tokens": [{"text":"冷たい","reading":"つめたい","gloss":"cold"},{"text":"お茶","reading":"おちゃ","gloss":"tea"},{"text":"は","gloss":"topic marker"},{"text":"お弁当","reading":"おべんとう","gloss":"boxed meal"},{"text":"の","gloss":"of"},{"text":"隣","reading":"となり","gloss":"next to / neighboring"},{"text":"です","gloss":"is"},{"text":"ね","gloss":"right?"},{"text":"。","plain":true}],"english":"The cold tea is next to the boxed meals, right?"}
+      ],
+      "caution": "The meanings can overlap. Use 横 when describing a side or location beside something; use 隣 when identifying its immediate neighbor."
+    },
+    {
       "id": "payment-means",
       "title": "Pay by a method",
       "pattern": "Method で[[払います|はらいます]]",
