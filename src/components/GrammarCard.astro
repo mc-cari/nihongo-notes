@@ -44,7 +44,7 @@ const { point, index } = Astro.props;
     </div>
     {point.caution && (
       <aside class="margin-warning">
-        <span>気をつけて</span>
+        <span><AnnotatedText text="[[気|き]]をつけて" /></span>
         <p><AnnotatedText text={point.caution} /></p>
       </aside>
     )}
