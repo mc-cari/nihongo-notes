@@ -21,6 +21,17 @@
       ]
     },
     {
+      "id": "how-is",
+      "title": "Ask how something is",
+      "pattern": "Noun は どうですか",
+      "summary": "どう is an interrogative adverb, not a particle. Use どうですか to ask about a thing’s condition or quality, or to ask what someone thinks of it.",
+      "examples": [
+        {"tokens": [{"text":"この","gloss":"this"},{"text":"料理","reading":"りょうり","gloss":"dish"},{"text":"は","gloss":"topic marker"},{"text":"どう","gloss":"how / what do you think?"},{"text":"です","gloss":"is"},{"text":"か","gloss":"question marker"},{"text":"。","plain":true}],"english":"How is this dish? / What do you think of this dish?"},
+        {"tokens": [{"text":"これ","gloss":"this one"},{"text":"も","gloss":"also"},{"text":"どう","gloss":"how about"},{"text":"です","gloss":"is"},{"text":"か","gloss":"question marker"},{"text":"。","plain":true}],"english":"How about this one too?"}
+      ],
+      "caution": "どう asks for an evaluation or condition. It is different from どの + noun (which one) and どちら (which of two)."
+    },
+    {
       "id": "two-choice",
       "title": "Compare two choices",
       "pattern": "A と B と どちらが …",
