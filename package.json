@@ -3,24 +3,24 @@
   "type": "module",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "deno@2.9.4",
+  "packageManager": "bun@1.2.23",
   "engines": {
-    "deno": ">=2.9.4"
+    "bun": ">=1.2.23"
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "npm run validate:content && astro check && astro build",
+    "build": "bun run validate:content && astro check && astro build",
     "check": "astro check",
-    "validate:content": "node scripts/validate-content.mjs",
-    "security:check": "deno outdated --frozen --compatible",
+    "validate:content": "bun scripts/validate-content.mjs",
+    "security:check": "bun audit",
     "preview": "astro preview"
   },
   "dependencies": {
+    "@fontsource-variable/newsreader": "5.3.0",
     "@fontsource/ibm-plex-mono": "5.3.0",
     "@fontsource/shippori-mincho": "5.3.0",
     "@fontsource/zen-kaku-gothic-new": "5.3.0",
-    "@fontsource-variable/newsreader": "5.3.0",
-    "astro": "7.1.6"
+    "astro": "7.3.2"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
@@ -35,8 +35,5 @@
     "typescript": "5.9.3",
     "unstorage": "1.17.5",
     "zod": "4.4.3"
-  },
-  "allowScripts": {
-    "esbuild@0.28.1": true
   }
 }
