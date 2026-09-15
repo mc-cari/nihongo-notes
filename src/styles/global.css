@@ -303,10 +303,10 @@ rt {
   background: rgba(195, 165, 103, .06);
   border-left: 2px solid var(--brass);
   font-family: var(--utility);
-  font-size: .74rem;
+  font-size: .82rem;
 }
 
-.grammar-card__pattern rt { font-size: .8em; }
+.grammar-card__pattern rt { font-size: .84em; }
 
 .grammar-card h2 {
   margin-bottom: 1rem;
