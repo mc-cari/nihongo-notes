@@ -5,10 +5,75 @@
   "kind": "lesson",
   "bookLesson": 4,
   "eyebrow": "Minna no Nihongo · Lesson 4",
-  "summary": "Say when things happen, define time ranges, and move polite verbs between non-past and past.",
+  "summary": "Say when things happen, distinguish calendar dates from durations, define time ranges, and move polite verbs between non-past and past.",
   "sourceFiles": ["みんなの日本語　第4課.pdf", "001.jpg", "002.jpg", "003.jpg", "004.jpg"],
   "takeaways": ["Exact clock times take に; relative times usually do not.", "から and まで independently mark the start and end of a range.", "ました and ませんでした place an action in the past."],
   "grammar": [
+    {
+      "id": "ni-time-or-not",
+      "title": "Time expressions: when to use に",
+      "pattern": "Exact time + に / relative time without に",
+      "summary": "Use に to pin an action to an exact clock time or calendar point. Relative expressions such as [[来週|らいしゅう]] and [[毎日|まいにち]] normally stand without it.",
+      "detail": "A weekday can take に when you present it as a scheduled day: [[金曜日|きんようび]]に働きます. With a time range, attach から and まで directly to the clock times instead.",
+      "examples": [
+        {"tokens": [{"text":"午後","reading":"ごご","gloss":"PM"},{"text":"八時","reading":"はちじ","gloss":"eight o’clock"},{"text":"に","gloss":"exact-time marker"},{"text":"寝ます","reading":"ねます","gloss":"go to bed"},{"text":"。","plain":true}],"english":"I go to bed at 8 PM."},
+        {"tokens": [{"text":"来週","reading":"らいしゅう","gloss":"next week"},{"text":"、","plain":true},{"text":"日本語","reading":"にほんご","gloss":"Japanese"},{"text":"を","gloss":"object marker"},{"text":"勉強します","reading":"べんきょうします","gloss":"study"},{"text":"。","plain":true}],"english":"I will study Japanese next week."},
+        {"tokens": [{"text":"金曜日","reading":"きんようび","gloss":"Friday"},{"text":"に","gloss":"day-point marker; optional in some contexts"},{"text":"働きます","reading":"はたらきます","gloss":"work"},{"text":"。","plain":true}],"english":"I work on Friday.","note":"Weekdays may take に or omit it; に makes the day feel like a scheduled point."}
+      ],
+      "caution": "Do not add に after relative time words such as [[今日|きょう]], [[明日|あした]], [[昨日|きのう]], [[毎日|まいにち]], or [[来週|らいしゅう]] in basic time expressions."
+    },
+    {
+      "id": "date-duration-and-day-order",
+      "title": "Calendar dates, durations, and day order",
+      "pattern": "Date: N[[日|にち]] / duration: N[[日間|にちかん]] / sequence: N[[日目|にちめ]]",
+      "summary": "Use the calendar-date reading for a day of the month. Add [[間|かん]] to say how long something lasts, and add [[目|め]] to say which day in a sequence it is.",
+      "detail": "Context can make a form such as [[２日|ふつか]] mean either the 2nd day of the month or two days. Among these day-number readings, day 1 is the only base-reading exception: [[１日|ついたち]] is the 1st of the month, while [[１日|いちにち]] means one day. From day 2 onward, the base reading is generally the same for the date and the number of days; add [[間|かん]] to make a duration explicit, as in [[２日間|ふつかかん]] or [[１日間|いちにちかん]]. For the third day in a sequence, use [[３日目|みっかめ]].",
+      "examples": [
+        {"tokens": [{"text":"５月","reading":"ごがつ","gloss":"May"},{"text":"３日","reading":"みっか","gloss":"the 3rd day of the month"},{"text":"に","gloss":"time-point marker"},{"text":"東京","reading":"とうきょう","gloss":"Tokyo"},{"text":"へ","gloss":"toward / to"},{"text":"行きます","reading":"いきます","gloss":"go"},{"text":"。","plain":true}],"english":"I will go to Tokyo on May 3."},
+        {"tokens": [{"text":"２日間","reading":"ふつかかん","gloss":"for two days"},{"text":"、","plain":true},{"text":"学校","reading":"がっこう","gloss":"school"},{"text":"に","gloss":"destination marker"},{"text":"行きました","reading":"いきました","gloss":"went"},{"text":"。","plain":true}],"english":"I went to school for two days."},
+        {"tokens": [{"text":"３日目","reading":"みっかめ","gloss":"the third day"},{"text":"に","gloss":"time-point marker"},{"text":"試験","reading":"しけん","gloss":"exam"},{"text":"が","gloss":"subject marker"},{"text":"ありました","reading":"ありました","gloss":"was held / existed"},{"text":"。","plain":true}],"english":"The exam was on the third day."}
+      ],
+      "caution": "Do not treat [[１日|ついたち]] and [[１日|いちにち]] as interchangeable: the first is the 1st day of the month, while the second means one day. [[間|かん]] marks a duration; [[目|め]] marks order in a sequence."
+    },
+    {
+      "id": "month-gatsu-getsu",
+      "title": "Month names: がつ or げつ?",
+      "pattern": "Number + がつ / calendar compound + げつ",
+      "summary": "Use がつ after a number to name a month. Use げつ in calendar compounds such as [[月曜日|げつようび]], [[今月|こんげつ]], and [[来月|らいげつ]].",
+      "detail": "The same character 月 changes reading according to the word. Numbered months use がつ: [[五月|ごがつ]]. Compound words for a month or weekday commonly use げつ: [[今月|こんげつ]] and [[月曜日|げつようび]].",
+      "examples": [
+        {"tokens": [{"text":"今月","reading":"こんげつ","gloss":"this month"},{"text":"は","gloss":"topic marker"},{"text":"五月","reading":"ごがつ","gloss":"May"},{"text":"です","gloss":"is"},{"text":"。","plain":true}],"english":"This month is May."},
+        {"tokens": [{"text":"月曜日","reading":"げつようび","gloss":"Monday"},{"text":"に","gloss":"day-point marker"},{"text":"働きます","reading":"はたらきます","gloss":"work"},{"text":"。","plain":true}],"english":"I work on Monday."},
+        {"tokens": [{"text":"来月","reading":"らいげつ","gloss":"next month"},{"text":"は","gloss":"topic marker"},{"text":"六月","reading":"ろくがつ","gloss":"June"},{"text":"です","gloss":"is"},{"text":"。","plain":true}],"english":"Next month is June."}
+      ],
+      "caution": "Do not use げつ for a numbered month: [[五月|ごがつ]] is May, not ごげつ. Do not use がつ in [[月曜日|げつようび]]."
+    },
+    {
+      "id": "ni-or-de-place",
+      "title": "Place: choose に or で by role",
+      "pattern": "[[場所|ばしょ]] に [[行きます|いきます]] / [[場所|ばしょ]] に あります / [[場所|ばしょ]] で Verb",
+      "summary": "For a place, に marks a destination or where something exists. で marks where an action happens.",
+      "detail": "Choose the particle from the place's role, not from the English word “at.” Movement goes toward a destination, existence stays at a location, and an action unfolds in a setting.",
+      "examples": [
+        {"tokens": [{"text":"学校","reading":"がっこう","gloss":"school"},{"text":"に","gloss":"destination marker"},{"text":"行きます","reading":"いきます","gloss":"go"},{"text":"。","plain":true}],"english":"I go to school."},
+        {"tokens": [{"text":"図書館","reading":"としょかん","gloss":"library"},{"text":"で","gloss":"place-of-action marker"},{"text":"勉強します","reading":"べんきょうします","gloss":"study"},{"text":"。","plain":true}],"english":"I study at the library."},
+        {"tokens": [{"text":"机","reading":"つくえ","gloss":"desk"},{"text":"の","gloss":"of / relational marker"},{"text":"上","reading":"うえ","gloss":"top"},{"text":"に","gloss":"place-of-existence marker"},{"text":"本","reading":"ほん","gloss":"book"},{"text":"が","gloss":"subject marker"},{"text":"あります","reading":"あります","gloss":"exists"},{"text":"。","plain":true}],"english":"There is a book on the desk."}
+      ],
+      "caution": "[[東京|とうきょう]]に[[行きます|いきます]] means movement to Tokyo; [[東京|とうきょう]]で[[働きます|はたらきます]] means working in Tokyo."
+    },
+    {
+      "id": "hajimaru-hajimeru",
+      "title": "[[始まる|はじまる]] vs [[始める|はじめる]]: what starts and who starts it",
+      "pattern": "Thing が [[始まります|はじまります]] / person が thing を [[始めます|はじめます]]",
+      "summary": "Use [[始まる|はじまる]] when something starts by itself or the sentence focuses on the event. Use [[始める|はじめる]] when someone actively starts something.",
+      "detail": "The thing that starts is marked with が: [[授業|じゅぎょう]]が[[始まります|はじまります]]. The thing being started is marked with を: [[私|わたし]]は[[勉強|べんきょう]]を[[始めます|はじめます]]. The first verb is intransitive; the second is transitive.",
+      "examples": [
+        {"tokens": [{"text":"授業","reading":"じゅぎょう","gloss":"class"},{"text":"が","gloss":"subject marker"},{"text":"始まります","reading":"はじまります","gloss":"starts"},{"text":"。","plain":true}],"english":"Class starts."},
+        {"tokens": [{"text":"私","reading":"わたし","gloss":"I"},{"text":"は","gloss":"topic marker"},{"text":"勉強","reading":"べんきょう","gloss":"study"},{"text":"を","gloss":"object marker"},{"text":"始めます","reading":"はじめます","gloss":"start"},{"text":"。","plain":true}],"english":"I start studying."},
+        {"tokens": [{"text":"先生","reading":"せんせい","gloss":"teacher"},{"text":"が","gloss":"subject marker"},{"text":"会議","reading":"かいぎ","gloss":"meeting"},{"text":"を","gloss":"object marker"},{"text":"始めます","reading":"はじめます","gloss":"starts"},{"text":"。","plain":true}],"english":"The teacher starts the meeting."}
+      ],
+      "caution": "Do not interchange the particles: [[授業|じゅぎょう]]が[[始まります|はじまります]] describes the class starting, while [[先生|せんせい]]が[[授業|じゅぎょう]]を[[始めます|はじめます]] describes the teacher starting it."
+    },
     {
       "id": "exact-time",
       "title": "Pin an action to a time",
@@ -44,7 +109,9 @@
   "recall": [
     {"prompt":"Does [[毎朝|まいあさ]] take に?","answer":"Normally no. Relative/repeating time words do not need に."},
     {"prompt":"What marks the end of a time range?","answer":"まで"},
-    {"prompt":"Make [[働きます|はたらきます]] past-negative.","answer":"[[働きませんでした|はたらきませんでした]]"}
+    {"prompt":"Make [[働きます|はたらきます]] past-negative.","answer":"[[働きませんでした|はたらきませんでした]]"},
+    {"prompt":"How do you read 月 in [[五月|ごがつ]] and [[月曜日|げつようび]]?","answer":"がつ in 五月; げつ in 月曜日."},
+    {"prompt":"How do you distinguish the 3rd day, three days, and the third day in a sequence?","answer":"[[３日|みっか]] can mean the 3rd day or three days by context; [[３日間|みっかかん]] makes the duration explicit; [[３日目|みっかめ]] means the third day in a sequence."}
   ],
-  "related": {"particles":["wa","ni","kara","made"],"verbs":["masu-time"],"adjectives":[]}
+  "related": {"particles":["wa","ni","de","kara","made"],"verbs":["masu-time","transitive"],"adjectives":[]}
 }

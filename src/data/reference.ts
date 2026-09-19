@@ -61,7 +61,7 @@ export const particles: Particle[] = [
     id: 'ni', kana: 'に', spoken: 'ni', role: 'target / point',
     core: 'Pins an event to a target: a time point, destination, recipient, or place of existence.',
     uses: ['Exact time: ８時に.', 'Destination with 行く・来る・帰る.', 'Location where something exists.', 'Recipient with あげる; person from whom something is received with もらう.'],
-    caution: 'Relative time words such as 今日, 明日, 毎日 usually do not take に. Weekdays may take it or omit it.',
+    caution: 'Relative time words such as 今日, 明日, 毎日, and 来週 usually do not take に. Weekdays may take it or omit it. For places, use に for a destination or place of existence, and で for the place where an action happens.',
     examples: [
       { tokens: [w('八時', 'はちじ', 'eight o’clock'), w('に', undefined, 'time point'), w('起きます', 'おきます', 'wake up'), p('。')], english: 'I wake up at eight.' },
       { tokens: [w('京都', 'きょうと', 'Kyoto'), w('に', undefined, 'destination marker'), w('行きます', 'いきます', 'go'), p('。')], english: 'I go to Kyoto.' },
@@ -76,7 +76,7 @@ export const particles: Particle[] = [
       { tokens: [w('家', 'いえ', 'home'), w('で', undefined, 'place of action'), w('食べます', 'たべます', 'eat'), p('。')], english: 'I eat at home.' },
       { tokens: [w('電車', 'でんしゃ', 'train'), w('で', undefined, 'means marker'), w('行きます', 'いきます', 'go'), p('。')], english: 'I go by train.' },
       { tokens: [w('そのまま', undefined, 'as it is'), w('で', undefined, 'state marker'), w('大丈夫', 'だいじょうぶ', 'all right'), w('です', undefined, 'is / polite'), p('。')], english: 'It is okay as it is.', note: 'Here で marks the condition in which something remains.' },
-    ], classes: ['grammar-basics', 'minna-lesson-5', 'minna-lesson-6', 'minna-lesson-7', 'convenience-store'],
+    ], classes: ['grammar-basics', 'minna-lesson-4', 'minna-lesson-5', 'minna-lesson-6', 'minna-lesson-7', 'convenience-store'],
   },
   {
     id: 'e', kana: 'へ', spoken: 'e', role: 'direction',
